@@ -253,4 +253,8 @@ main {
     }
 }
 
-@media (min-width: 1024px) {}
+@media (min-width: 1024px) {
+    .legal-notices {
+        padding: 4rem;
+    }
+}
