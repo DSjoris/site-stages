@@ -1,0 +1,118 @@
+:root {
+    --background: #f1f1f1;
+
+    --item-font: #1f7a98;
+    --item-font-light: rgb(214, 214, 214);
+
+    --primary: #19586D;
+    --primary-dark: #114252;
+    --text: #fff;
+    --text-grey: #6f6f6f;
+
+    --border: rgb(173, 173, 173);
+}
+
+/* Background */
+.bg-white {
+    background-color: white;
+}
+
+/* Text */
+.text-primary {
+    color: var(--primary);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.small-text {
+    color: var(--text-grey);
+    font-size: 0.8rem;
+    margin-top: auto;
+}
+
+/* Margin & Padding */
+.mt-05 {
+    margin-top: 0.5rem;
+}
+
+.p-2 {
+    padding: 2rem;
+}
+
+/* With & Height */
+.w-full {
+    width: 100%;
+}
+
+/* Border */
+.card {
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+/* Flexbox */
+.flex {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.gap-1 {
+    gap: 1rem;
+}
+
+/* Shadows */
+.shadow {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.btn-primary {
+    padding: 0.4rem;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: var(--primary);
+    border: none;
+    color: var(--text);
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .tab-flex-row {
+        flex-direction: row;
+    }
+}
