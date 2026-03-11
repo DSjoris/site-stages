@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Space Grotesk, sans-serif;
+    background-color: var(--background);
+}
+
+/* navbar.php */
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary);
+    padding: 1rem;
+}
+
+.logo {
+    font-weight: bold;
+}
+
+.burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.burger span {
+    height: 3px;
+    width: 25px;
+    border-radius: 6px;
+    background-color: var(--text);
+}
+
+.nav-links {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--item-font);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.nav-links.active {
+    max-height: 500px;
+    padding: 1rem;
+    opacity: 1;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text);
+    transition: 0.4s;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* main */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* index.php */
+.fast-search-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    gap: 1rem;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.input {
+    outline: none;
+    padding: 0.6rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+.statistics-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 2rem;
+}
+
+.statistics-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.statistic-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--background);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    gap: 2rem;
+    padding: 1rem;
+    min-width: 220px;
+}
+
+.statistic-item i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.statistic-item-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.offer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    border: 1px solid var(--border);
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.offer-skills-list {
+    padding: 0 2rem;
+}
+
+.offer-skill {
+    font-size: 0.8rem;
+}
+
+.offer-footer {
+    display: flex;
+    flex-direction: column;
+}
+
+/* login.php */
+.login-form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 6px;
+    gap: 2rem;
+}
+
+.input-label {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.form-error {
+    display: none;
+    color: red;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+/* footer.php */
+.footer {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--primary);
+    color: var(--text);
+    padding: 1rem;
+    font-size: 0.8rem;
+    gap: 0.8rem;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-copyright {
+    font-weight: bold;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .burger {
+        display: none;
+    }
+
+    .nav-links {
+        max-height: fit-content;
+        opacity: 1;
+        flex-direction: row;
+        position: static;
+        box-shadow: none;
+        width: auto;
+        background-color: transparent;
+        gap: 2rem;
+    }
+
+    .input-field {
+        max-width: 768px;
+    }
+
+    .statistics-wrap {
+        flex-direction: row;
+    }
+
+    .offer-list {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1024px) {}
