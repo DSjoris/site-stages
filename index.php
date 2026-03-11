@@ -1,0 +1,75 @@
+<?php include "./includes/header.php"; ?>
+<?php include "./includes/navbar.php"; ?>
+
+<main>
+    <!-- Section: recherche rapide d'offres -->
+    <section class="fast-search-section">
+        <h2>Offres du site</h2>
+        <div class="input-field">
+            <input type="text" class="input" placeholder="Cybersécurité / Administrateur réseaux / BTP">
+            <button class="btn-primary">Rechercher</button>
+        </div>
+    </section>
+
+    <section class="flex-col align-center gap-1 p-2 bg-white">
+        <h2>Les 3 offres récentes</h2>
+
+        <div class="offer-list flex-col gap-1">
+            <?php 
+                $title = "Développeur Web";
+                $society = "CESI";
+                $skills = ['HTML/CSS', 'JS', 'PHP'];
+                $duration = 4;
+                include 'includes/components/offer.php';
+            ?>
+
+            <?php 
+                $title = "Cybersécurité";
+                $society = "CESI";
+                $skills = ['Réseaux', 'Linux'];
+                $duration = 6;
+                include 'includes/components/offer.php';
+            ?>
+
+            <?php 
+                $title = "Base de donnée";
+                $society = "CESI";
+                $skills = ['SQL'];
+                $duration = 4;
+                include 'includes/components/offer.php';
+            ?>
+        </div>
+    </section>
+
+    <section class="flex-col align-center justify-center gap-1 p-2 w-full">
+        <h2>Quelques statistiques</h2>    
+
+        <div class="flex-col gap-1 tab-flex-row">
+            <div class="statistic-item">
+                <i class="fa-solid fa-building"></i>
+                <div class="statistic-item-data">
+                    <span class="text-primary bold">450+</span>
+                    <span class="small-text">Entreprises</span>
+                </div>
+            </div>
+
+            <div class="statistic-item">
+                <i class="fa-brands fa-buffer"></i>
+                <div class="statistic-item-data">
+                    <span class="text-primary bold">1,200+</span>
+                    <span class="small-text">Offres disponibles</span>
+                </div>
+            </div>
+
+            <div class="statistic-item">
+                <i class="fa-solid fa-user-graduate"></i>
+                <div class="statistic-item-data">
+                    <span class="text-primary bold">5,900+</span>
+                    <span class="small-text">Étudiants</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<?php include "./includes/footer.php"; ?>
