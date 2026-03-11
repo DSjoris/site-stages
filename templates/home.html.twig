@@ -15,12 +15,12 @@
         <h2>Les 3 offres récentes</h2>
 
         <div class="offer-list flex-col gap-1">
-            {% for offer in offers %}
+            {% for offer in lastOffers %}
                 {% include 'components/offer.html.twig' with {
                     'title': offer.title,
-                    'society': offer.society,
+                    'society': offer.company,
                     'skills': offer.skills,
-                    'duration': offer.duration
+                    'duration': offer.duration_weeks
                 } %}
 
                 {% else %}
