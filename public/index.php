@@ -23,6 +23,9 @@
             $controller = new LoginController($twig);
             $controller->loginPage();
             break;
+        case 'mentions-legales':
+            echo $twig->render('legal-notices.html.twig');
+            break;
         default:
             header("HTTP/1.0 404 Not Found");
             echo $twig->render('404.html.twig');
