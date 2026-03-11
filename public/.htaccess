@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Fixe la base à la racine du dossier public
+RewriteBase /
+
+# Ne fait rien si c'est un fichier ou un dossier réel
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Tout le reste va vers index.php
+RewriteRule ^ index.php [L]

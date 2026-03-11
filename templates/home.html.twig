@@ -1,6 +1,6 @@
-<?php include "./includes/header.php"; ?>
-<?php include "./includes/navbar.php"; ?>
+{% extends 'layout.html.twig' %}
 
+{% block main %}
 <main>
     <!-- Section: recherche rapide d'offres -->
     <section class="fast-search-section">
@@ -15,6 +15,18 @@
         <h2>Les 3 offres récentes</h2>
 
         <div class="offer-list flex-col gap-1">
+            {% for offer in offers %}
+                {% include 'components/offer.html.twig' with {
+                    'title': offer.title,
+                    'society': offer.society,
+                    'skills': offer.skills,
+                    'duration': offer.duration
+                } %}
+
+                {% else %}
+                    <p>Aucune offre dispo pour le moment.</p>
+            {% endfor %}
+
             <?php 
                 $title = "Développeur Web";
                 $society = "CESI";
@@ -71,5 +83,4 @@
         </div>
     </section>
 </main>
-
-<?php include "./includes/footer.php"; ?>
+{% endblock %}

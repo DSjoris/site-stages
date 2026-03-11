@@ -46,6 +46,10 @@
     width: 100%;
 }
 
+.h-full {
+    height: 100%;
+}
+
 /* Border */
 .card {
     border-radius: 6px;
@@ -87,6 +91,10 @@
 
 .gap-1 {
     gap: 1rem;
+}
+
+.gap-2 {
+    gap: 2rem;
 }
 
 /* Shadows */
