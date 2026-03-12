@@ -6,14 +6,12 @@
 
     class HomeController extends Controller {
         public function __construct($templateEngine) {
-            $this->model = null;
+            $this->model = new OfferModel();
             $this->templateEngine = $templateEngine;
         }
 
         public function homePage() {
-            $db = new MySQLDatabase();
-            $offerModel = new OfferModel($db);
-            $lastsOffers = $offerModel->getLast3Offers();
+            $lastsOffers = $this->model->getLast3Offers();
 
             foreach($lastsOffers as &$offer) {
                 $offer['skills'] = $offer['skills_list'] ? explode(', ', $offer['skills_list']) : [];
