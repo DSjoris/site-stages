@@ -5,6 +5,6 @@
     use PDOException;
 
     interface IDatabase {
-        public function getConnection();
+        public function getLast3Offers();
     }
 ?>
