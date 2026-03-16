@@ -8,10 +8,13 @@
     $dotenv->load();
 
     use App\Controllers\HomeController;
-    use App\Controllers\LoginController;
+    use App\Controllers\AuthController;
+
+    session_start();
 
     $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
     $twig = new \Twig\Environment($loader);
+    $twig->addGlobal('session', $_SESSION);
 
     $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -26,8 +29,12 @@
             $controller->homePage();
             break;
         case 'connexion':
-            $controller = new LoginController($twig);
-            $controller->loginPage();
+            $controller = new AuthController($twig);
+            $controller->loginAction();
+            break;
+        case 'logout':
+            $controller = new AuthController($twig);
+            $controller->logout();
             break;
         case 'mentions-legales':
             echo $twig->render('legal-notices.html.twig');

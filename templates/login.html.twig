@@ -3,18 +3,20 @@
 {% block main %}
 <main>
     <div class="login-form">
-        <form action="">
+        <form action="/connexion" method="post">
             <div class="input-field">
                 <label for="email" class="input-label">Email</label>
                 <input type="text" name="email" class="input" autocomplete="off" placeholder="you@example.fr">
             </div>
 
             <div class="input-field">
-                <label for="email" class="input-label">Mot de passe</label>
-                <input type="password" name="password" class="input" placeholder="••••••••••••">
+                <label for="password" class="input-label">Mot de passe</label>
+                <input type="password" name="password" class="input" placeholder="••••••••••••" autocomplete="off">
             </div>
 
-            <p class="form-error">Identifiant invalide.</p>
+            {% if error %}
+                <p class="form-error">{{ error }}</p>
+            {% endif %}
 
             <button class="btn-primary">S'identifier</button>
         </form>

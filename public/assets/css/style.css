@@ -193,7 +193,7 @@ main {
 }
 
 .form-error {
-    display: none;
+    display: flex;
     color: red;
     font-weight: bold;
     font-size: 0.8rem;
