@@ -6,5 +6,6 @@
 
     interface IDatabase {
         public function getLast3Offers();
+        public function getUser($email);
     }
 ?>
