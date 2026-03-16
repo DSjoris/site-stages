@@ -12,6 +12,10 @@
     <div class="nav-links">
         <a href="/offres">Offres</a>
         <a href="/entreprises">Entreprises</a>
-        <a href="connexion">Se connecter</a>
+        {% if not session.user %}
+            <a href="/connexion">Se connecter</a>
+        {% else %}
+            <a href="/logout">Se déconnecter</a>
+        {% endif %}
     </div>
 </header>
