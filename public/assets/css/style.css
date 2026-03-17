@@ -254,6 +254,24 @@ main {
 }
 
 @media (min-width: 1024px) {
+    .navbar {
+        padding: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .offer {
+        font-size: 1.2rem;
+    }
+
+    .offer-skill {
+        font-size: 1rem;
+    }
+
+    .footer {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+
     .legal-notices {
         padding: 4rem;
     }

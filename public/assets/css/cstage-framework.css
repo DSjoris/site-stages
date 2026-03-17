@@ -144,3 +144,26 @@
         flex-direction: row;
     }
 }
+
+@media (min-width: 1024px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    input {
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        font-size: 1rem;
+        padding: 0.5rem 0;
+    }
+
+    .text-primary {
+        font-size: 1.2rem;
+    }
+
+    .small-text {
+        font-size: 1rem;
+    }
+}
