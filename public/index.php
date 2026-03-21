@@ -9,13 +9,17 @@
 
     use App\Controllers\HomeController;
     use App\Controllers\AuthController;
+<<<<<<< HEAD
     use App\Controllers\OfferController;
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
     use App\Controllers\CompaniesController;
 
     session_start();
 
     $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
     $twig = new \Twig\Environment($loader);
+<<<<<<< HEAD
     $twig->addGlobal('user', $_SESSION['user'] ?? null);
     $twig->addGlobal('session', $_SESSION);
 
@@ -26,6 +30,16 @@
     $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $route = trim($request_uri, '/');
     
+=======
+    $twig->addGlobal('session', $_SESSION);
+
+    $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+    $basePath = '/';
+    $route = str_replace($basePath, '', $request_uri);
+    $route = trim($route, '/');
+
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
     switch($route) {
         case '':
         case 'accueil':
@@ -40,6 +54,7 @@
             $controller = new AuthController($twig);
             $controller->logout();
             break;
+<<<<<<< HEAD
         case 'offres':
             $controller = new OfferController($twig);
             $controller->offersPage();
@@ -85,9 +100,22 @@
             $idCompany = isset($_GET['id']) ? (int) $_GET['id'] : 0;
             $controller->companyDetailsPage($idCompany);
             break;
+=======
+        case 'mentions-legales':
+            echo $twig->render('legal-notices.html.twig');
+            break;
+        case 'companies':
+            $controller = new CompaniesController($twig);
+            $controller->companiesPage();
+            break;
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
         default:
             header("HTTP/1.0 404 Not Found");
             echo $twig->render('404.html.twig');
             break;
+<<<<<<< HEAD
+=======
+
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
     }
 ?>

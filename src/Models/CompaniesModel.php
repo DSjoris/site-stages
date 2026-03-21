@@ -52,6 +52,7 @@ class CompaniesModel extends MySQLDatabase
 
         return (int) $result['total'];
     }
+<<<<<<< HEAD
     
     public function createCompany($name, $sector, $address, $siret, $website, $description)
     {
@@ -147,5 +148,7 @@ class CompaniesModel extends MySQLDatabase
 
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 }
 ?>

@@ -198,6 +198,10 @@ main {
     font-weight: bold;
     font-size: 0.8rem;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 /*companies.php */
 .companies-search {
     margin-bottom: 2rem;
@@ -232,6 +236,7 @@ main {
     gap: 1.5rem;
 }
 
+<<<<<<< HEAD
 .company-card-title {
     position: relative;
 }
@@ -296,6 +301,8 @@ main {
     color: #f5b301;
 }
 
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 .company-card {
     display: flex;
     flex-direction: column;
@@ -329,7 +336,10 @@ main {
 
 .company-card-content {
     display: flex;
+<<<<<<< HEAD
     justify-content: flex-end;
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
     flex-direction: column;
     gap: 0.5rem;
     color: #333;
@@ -345,6 +355,7 @@ main {
     margin-left: auto;
 }
 
+<<<<<<< HEAD
 .company-actions {
     display: flex;
     justify-content: flex-end;
@@ -364,6 +375,14 @@ main {
     line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+=======
+.company-details-btn {
+    align-self: flex-end;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 }
 
 .pagination {
@@ -401,6 +420,7 @@ main {
     color: var(--text);
 }
 
+<<<<<<< HEAD
 /* create company.php */
 
 .company-create-page {
@@ -654,6 +674,8 @@ main {
     font-style: italic;
 }
 
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 
 /* footer.php */
 .footer {

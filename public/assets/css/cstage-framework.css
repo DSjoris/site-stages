@@ -6,9 +6,15 @@
 
     --primary: #19586D;
     --primary-dark: #114252;
+<<<<<<< HEAD
     --text: #fff;
     --text-grey: #6f6f6f;
     --text-red: #ff4d4d;
+=======
+    --primary-light: #219fc9;
+    --text: #fff;
+    --text-grey: #6f6f6f;
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 
     --border: rgb(173, 173, 173);
 }
@@ -23,10 +29,13 @@
     color: var(--primary);
 }
 
+<<<<<<< HEAD
 .error {
     color: var(--text-red);
 }
 
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 .bold {
     font-weight: bold;
 }
@@ -71,6 +80,7 @@
     padding: 2rem;
 }
 
+<<<<<<< HEAD
 .px-2 {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -91,11 +101,14 @@
     margin-bottom: 2rem;
 }
 
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 /* With & Height */
 .w-full {
     width: 100%;
 }
 
+<<<<<<< HEAD
 .min-width-0 {
     min-width: 0;
 }
@@ -104,10 +117,15 @@
     min-height: 0;
 }
 
+<<<<<<< HEAD
 .max-width-900 {
     max-width: 900px;
 }
 
+=======
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
+>>>>>>> 9f579ed (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 .h-full {
     height: 100%;
 }
@@ -137,10 +155,13 @@
     flex-direction: row;
 }
 
+<<<<<<< HEAD
 .flex-wrap {
     flex-wrap: wrap;
 }
 
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 .flex-center {
     display: flex;
     align-items: center;
@@ -151,10 +172,13 @@
     align-items: center;
 }
 
+<<<<<<< HEAD
 .align-left {
     align-items: flex-start;
 }
 
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 .justify-center {
     justify-content: center;
 }
@@ -167,14 +191,18 @@
     gap: 1rem;
 }
 
+<<<<<<< HEAD
 .gap-1-5 {
     gap: 1.5rem;
 }
 
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 .gap-2 {
     gap: 2rem;
 }
 
+<<<<<<< HEAD
 .rounded {
     border-radius: 6px;
 }
@@ -184,11 +212,14 @@
     overflow: hidden;
 }
 
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 /* Shadows */
 .shadow {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
+<<<<<<< HEAD
 /* Buttons & Badges */
 .btn-primary {
     padding: 0.5rem 2rem;
@@ -201,10 +232,26 @@
     transition: 0.4s;
     text-align: center;
     font-size: 1rem;
+=======
+/* Buttons */
+.btn-primary {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: none;
+
+    background-color: var(--primary);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.2s ease;
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 }
 
 .btn-primary:hover {
     background-color: var(--primary-dark);
+<<<<<<< HEAD
 }
 
 .badge {
@@ -227,6 +274,9 @@
     text-overflow: ellipsis;
     display: block;
     width: 100%;
+=======
+    text-decoration: none;
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 }
 
 /* Media Queries */
@@ -234,6 +284,7 @@
     .tab-flex-row {
         flex-direction: row;
     }
+<<<<<<< HEAD
 
     .tab-flex-col {
         flex-direction: column;
@@ -260,4 +311,6 @@
     .small-text {
         font-size: 1rem;
     }
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 }
