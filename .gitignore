@@ -2,6 +2,9 @@
 .env
 *.log
 <<<<<<< HEAD
+<<<<<<< HEAD
 public/uploads/
 =======
 >>>>>>> 91e6c56 (Ajout de la page des entreprises avec une recherche et une pagination)
+=======
+>>>>>>> 0beb2c7 (Je remet tout le projet)

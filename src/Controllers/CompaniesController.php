@@ -28,13 +28,10 @@ class CompaniesController extends Controller
         $totalCompanies = $this->model->countCompanies($search);
         $totalPages = (int) ceil($totalCompanies / $limit);
 
-<<<<<<< HEAD
         foreach ($companies as &$company) {
             $company['ville'] = $this->extractVille($company['address']);
         }
 
-=======
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
         echo $this->templateEngine->render('companies.html.twig', [
             'companies' => $companies,
             'currentPage' => $page,
@@ -42,7 +39,6 @@ class CompaniesController extends Controller
             'search' => $search
         ]);
     }
-<<<<<<< HEAD
 
     public function createCompanyPage()
     {
@@ -207,7 +203,3 @@ class CompaniesController extends Controller
         exit;
     }
 }
-=======
-}
-?>
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)

@@ -128,3 +128,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+inputCv.addEventListener('change', () => {
+    if (inputCv.files.length) {
+        errorApplyField.textContent = '';
+    }
+    console.log("test")
+    navLinks.classList.toggle('active');
+});

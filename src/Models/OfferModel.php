@@ -11,7 +11,6 @@
         public function getLast3Offers() {
             return $this->db->getLast3Offers();
         }
-
         public function getAllOffers() {
             return $this->db->getAllOffers();
         }
@@ -39,7 +38,6 @@
         public function getUserCVs($id_student) {
             return $this->db->getUserCVs($id_student);
         }
-
         public function isInWishlist($id_student, $id_offer) {
             return $this->db->isInWishlist($id_student, $id_offer);
         }

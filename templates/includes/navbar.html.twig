@@ -17,8 +17,9 @@
             <a href="/wishlist">Ma Wishlist</a>
         {% endif %}
 
-        {% if not user %}
-        <a href="/entreprises/creation">Ajouter une entreprise</a>
+        {% if session.user and not user %}
+            <a href="/entreprises/creation">Ajouter une entreprise</a>
+        {% endif %}
         {% if not session.user %}
             <a href="/connexion">Se connecter</a>
         {% else %}
