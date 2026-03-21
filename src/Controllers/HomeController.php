@@ -11,14 +11,27 @@
         }
 
         public function homePage() {
-            $lastsOffers = $this->model->getLast3Offers();
+            $keyword  = $_GET['keyword'] ?? '';
+            $duration = $_GET['duration'] ?? '';
+            $salary   = $_GET['salary'] ?? '';
+            $skill    = $_GET['skill'] ?? '';
+            $level    = $_GET['level'] ?? '';
 
-            foreach($lastsOffers as &$offer) {
+            $isSearch = $keyword || $duration || $salary || $skill || $level;
+
+            if ($isSearch) {
+                $offers = $this->model->searchOffers($keyword, $duration, $salary, $skill, $level);
+            } else {
+                $offers = $this->model->getLast3Offers();
+            }
+
+            foreach ($offers as &$offer) {
                 $offer['skills'] = $offer['skills_list'] ? explode(', ', $offer['skills_list']) : [];
             }
 
             echo $this->templateEngine->render('home.html.twig', [
-                'lastOffers' => $lastsOffers
+                'lastOffers' => $offers,
+                'isSearch'   => $isSearch
             ]);
         }
     }

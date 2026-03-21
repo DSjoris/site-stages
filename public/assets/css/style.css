@@ -222,6 +222,9 @@ main {
 .footer-copyright {
     font-weight: bold;
 }
+.filters {
+    margin-top: 1rem; 
+}
 
 /* Media Queries */
 @media (min-width: 768px) {
