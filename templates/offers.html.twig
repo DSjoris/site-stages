@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Offres de stage - C'Stage{% endblock %}
+
+{% block main %}
+<main>
+    <section class="flex-col align-center gap-1 p-2 bg-white">
+        <h2>Toutes les offres</h2>
+
+        <div class="offer-list flex-col gap-1">
+            {% for offer in offers %}
+                {% include 'components/offer.html.twig' with {
+                    'id': offer.id_offer,
+                    'title': offer.title,
+                    'society': offer.company,
+                    'skills': offer.skills,
+                    'duration': offer.duration_weeks
+                } %}
+            {% else %}
+                <p>Aucune offre disponible pour le moment.</p>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}
