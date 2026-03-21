@@ -1,0 +1,116 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ company.name }} - Détails{% endblock %}
+
+{% block main %}
+<main class="companies-details-page">
+    <section class="companies-details-wrapper">
+        <article class="companies-details-card">
+            <div class="companies-details-header">
+                <h1>{{ company.name }}</h1>
+
+                {% if company.sector %}
+                    <span class="company-badge">{{ company.sector }}</span>
+                {% endif %}
+            </div>
+
+            <div class="companies-details-content">
+                {% if company.address %}
+                    <p><strong>Adresse :</strong> {{ company.address }} {{ company.country }}</p>
+                {% endif %}
+
+                {% if company.siret %}
+                    <p><strong>SIRET :</strong> {{ company.siret }}</p>
+                {% endif %}
+
+                {% if company.website %}
+                    <p>
+                        <strong>Site web :</strong>
+                        <a href="{{ company.website }}" target="_blank" rel="noopener noreferrer">
+                            {{ company.website }}
+                        </a>
+                    </p>
+                {% endif %}
+
+                {% if company.description %}
+                    <div class="companies-details-description">
+                        <h2>Description</h2>
+                        <p>{{ company.description }}</p>
+                    </div>
+                {% endif %}
+            </div>
+            {% if ratingData %}
+                <div class="company-average-rating">
+                    <strong>Note moyenne :</strong>
+                    {{ ratingData.avg_rating ?? '—' }}/5
+                    {% if ratingData.review_count is defined and ratingData.review_count > 0 %}
+                        ({{ ratingData.review_count }} avis)
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {% if session.user is defined and session.user.user_type in ['admin', 'pilote'] %}
+                <form method="POST" action="/companies/rate/{{ company.id_company }}" class="company-rating-form">
+                    <p class="rating-label">Noter l'entreprise :</p>
+
+                    <div class="star-rating">
+                        {% set currentRating = userReview.rating ?? 0 %}
+
+                        {% for i in 5..1 %}
+                            <input
+                                type="radio"
+                                id="star{{ i }}"
+                                name="rating"
+                                value="{{ i }}"
+                                {% if currentRating == i %}checked{% endif %}
+                                required
+                            >
+                            <label for="star{{ i }}" title="{{ i }} étoile{% if i > 1 %}s{% endif %}">★</label>
+                        {% endfor %}
+                    </div>
+
+                    <button type="submit" class="btn-primary">Enregistrer la note</button>
+                </form>
+            {% endif %}
+        </article>
+
+        <section class="companies-offers-section">
+            <h2>Offres liées à cette entreprise</h2>
+
+            {% if offers is not empty %}
+                <div class="companies-offers-list">
+                    {% for offer in offers %}
+                        <article class="offer">
+                            <h3>{{ offer.title }}</h3>
+
+                            {% if offer.contract_type %}
+                                <p><strong>Contrat :</strong> {{ offer.contract_type }}</p>
+                            {% endif %}
+
+                            {% if offer.location %}
+                                <p><strong>Lieu :</strong> {{ offer.location }}</p>
+                            {% endif %}
+
+                            {% if offer.salary %}
+                                <p><strong>Salaire :</strong> {{ offer.salary }}</p>
+                            {% endif %}
+
+                            {% if offer.description %}
+                                <p>{{ offer.description }}</p>
+                            {% endif %}
+
+                            {% if offer.id_offer is defined %}
+                                <a href="/offers/details?id={{ offer.id_offer }}" class="btn-primary">
+                                    Voir l'offre
+                                </a>
+                            {% endif %}
+                        </article>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>Aucune offre n'est liée à cette entreprise pour le moment.</p>
+            {% endif %}
+        </section>
+    </section>
+</main>
+{% endblock %}

@@ -10,20 +10,22 @@
     use App\Controllers\HomeController;
     use App\Controllers\AuthController;
     use App\Controllers\OfferController;
+    use App\Controllers\CompaniesController;
 
     session_start();
 
     $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
     $twig = new \Twig\Environment($loader);
     $twig->addGlobal('user', $_SESSION['user'] ?? null);
+    $twig->addGlobal('session', $_SESSION);
 
     $errors = $_SESSION['errors'] ?? [];
     unset($_SESSION['errors']);
     $twig->addGlobal('errors', $errors);
 
     $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-    $route = ltrim($request_uri, '/');
-
+    $route = trim($request_uri, '/');
+    
     switch($route) {
         case '':
         case 'accueil':
@@ -65,6 +67,23 @@
         case 'candidatures':
             $controller = new OfferController($twig);
             $controller->applicationsPage();
+        case 'entreprises':
+            $controller = new CompaniesController($twig);
+            $controller->companiesPage();
+            break;
+        case 'entreprises/creation':
+            $controller = new CompaniesController($twig);
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $controller->storeCompany();
+            } else {
+                $controller->createCompanyPage();
+            }
+            break;
+        case 'entreprises/details':
+            $controller = new CompaniesController($twig);
+            $idCompany = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+            $controller->companyDetailsPage($idCompany);
             break;
         default:
             header("HTTP/1.0 404 Not Found");

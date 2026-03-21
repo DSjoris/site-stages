@@ -1,0 +1,80 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+<main>
+    <section class="flex-col align-center gap-1 p-2 bg-white">
+        <h2>Liste des entreprises</h2>
+        <section class="companies-search">
+            <form method="GET" action="/entreprises" class="companies-search-form">
+                <input type="text" name="search" class="companies-search-input" placeholder="Rechercher une entreprise" value="{{ search|default('') }}">
+                <button type="submit" class="btn-primary">Rechercher</button>
+            </form>
+        </section>
+        <div class="company-list flex-col gap-1 w-full">
+            {% for company in companies %}
+                <article class="company-card">
+                    <div class="company-card-header">
+                        <div class="company-card-title">
+                            <div class="company-rating">
+                                ⭐ {{ company.average_rating ?? '—' }}
+                            </div>
+
+                            <div class="company-card-header">
+                                <h2>{{ company.name }}</h2>
+                            </div> 
+                        </div>
+                        {% if company.sector is defined and company.sector %}
+                            <span class="company-badge">{{ company.sector }}</span>
+                        {% endif %}
+                    </div>
+
+                    <div class="company-card-content">
+                        {% if company.ville is defined and company.ville %}
+                            <p><strong>Ville :</strong> {{ company.ville }}</p>
+                        {% endif %}
+
+                        {% if company.description is defined and company.description %}
+                            <p class="company-description-preview">{{ company.description }}</p>
+                        {% else %}
+                            <p>Aucune description disponible.</p>
+                        {% endif %}
+                    </div>
+                    <div class="company-actions">
+                        {% if session.user is defined and session.user.user_type is defined and session.user.user_type in ['admin', 'pilote'] %}
+                            <a href="/entreprises/edit/{{ company.id_company }}" class="btn-primary company-actions-btn">
+                                Modifier
+                            </a>
+                        {% endif %}
+                        <a href="/entreprises/details?id={{ company.id_company }}" class="btn-primary company-actions-btn">
+                            Détails
+                        </a>
+                    </div>
+                </article>
+            {% else %}
+                <p>Aucune entreprise disponible pour le moment.</p>
+            {% endfor %}
+        </div>
+
+        {% if totalPages > 1 %}
+            <nav class="pagination">
+                {% if currentPage > 1 %}
+                    <a href="/entreprises?page={{ currentPage - 1 }}{% if search %}&search={{ search|url_encode }}{% endif %}" class="btn-primary">Précédent</a>
+                {% endif %}
+
+                <div class="pagination-pages">
+                    {% for i in 1..totalPages %}
+                        <a href="/entreprises?page={{ i }}{% if search %}&search={{ search|url_encode }}{% endif %}"
+                        class="pagination-link {% if i == currentPage %}active{% endif %}">
+                            {{ i }}
+                        </a>
+                    {% endfor %}
+                </div>
+
+                {% if currentPage < totalPages %}
+                    <a href="/entreprises?page={{ currentPage + 1 }}{% if search %}&search={{ search|url_encode }}{% endif %}" class="btn-primary">Suivant</a>
+                {% endif %}
+            </nav>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}

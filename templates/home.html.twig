@@ -4,9 +4,11 @@
 <main>
     <section class="flex-col align-center gap-1 py-2">
         <h2>Offres du site</h2>
-        {% include 'components/search-offer.html.twig' %}
+        <div class="input-field">
+            <input type="text" class="input" placeholder="Cybersécurité / Administrateur réseaux / BTP">
+            <button class="btn-primary">Rechercher</button>
+        </div>
     </section>
-
 
     <section class="flex-col align-center gap-1 p-2 bg-white">
         <h2>Les 3 offres récentes</h2>
@@ -24,6 +26,30 @@
                 {% else %}
                     <p>Aucune offre dispo pour le moment.</p>
             {% endfor %}
+
+            <?php 
+                $title = "Développeur Web";
+                $society = "CESI";
+                $skills = ['HTML/CSS', 'JS', 'PHP'];
+                $duration = 4;
+                include 'includes/components/offer.php';
+            ?>
+
+            <?php 
+                $title = "Cybersécurité";
+                $society = "CESI";
+                $skills = ['Réseaux', 'Linux'];
+                $duration = 6;
+                include 'includes/components/offer.php';
+            ?>
+
+            <?php 
+                $title = "Base de donnée";
+                $society = "CESI";
+                $skills = ['SQL'];
+                $duration = 4;
+                include 'includes/components/offer.php';
+            ?>
         </div>
     </section>
 
@@ -34,7 +60,7 @@
             <div class="statistic-item">
                 <i class="fa-solid fa-building"></i>
                 <div class="statistic-item-data">
-                    <span class="text-primary bold">{{ stats.total_companies }}</span>
+                    <span class="text-primary bold">450+</span>
                     <span class="small-text">Entreprises</span>
                 </div>
             </div>
@@ -42,7 +68,7 @@
             <div class="statistic-item">
                 <i class="fa-brands fa-buffer"></i>
                 <div class="statistic-item-data">
-                    <span class="text-primary bold">{{ stats.total_offers }}</span>
+                    <span class="text-primary bold">1,200+</span>
                     <span class="small-text">Offres disponibles</span>
                 </div>
             </div>
@@ -50,7 +76,7 @@
             <div class="statistic-item">
                 <i class="fa-solid fa-user-graduate"></i>
                 <div class="statistic-item-data">
-                    <span class="text-primary bold">{{ stats.total_students }}</span>
+                    <span class="text-primary bold">5,900+</span>
                     <span class="small-text">Étudiants</span>
                 </div>
             </div>
