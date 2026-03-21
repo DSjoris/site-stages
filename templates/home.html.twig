@@ -52,6 +52,7 @@
         <div class="offer-list flex-col gap-1">
             {% for offer in lastOffers %}
                 {% include 'components/offer.html.twig' with {
+                    'id': offer.id_offer,
                     'title': offer.title,
                     'society': offer.company,
                     'skills': offer.skills,

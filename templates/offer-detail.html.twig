@@ -1,0 +1,94 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ offer.title }} - C'Stage{% endblock %}
+
+{% block main %}
+<main>
+    <section class="offer-detail-section">
+        <div class="offer-detail-card">
+
+            <div class="offer-detail-header">
+                <h1 class="offer-detail-title">{{ offer.title }}</h1>
+                {% if session.user and session.user.user_type == 'student' %}
+                    <button class="wishlist-btn" title="Ajouter à la wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                {% endif %}
+            </div>
+
+            <div class="offer-detail-body">
+                <div class="offer-detail-info">
+                    <div class="offer-info-item">
+                        <i class="fa-solid fa-building"></i>
+                        <div>
+                            <span class="offer-info-label">Entreprise</span>
+                            <span class="offer-info-value">{{ offer.company }}</span>
+                        </div>
+                    </div>
+
+                    <div class="offer-info-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <span class="offer-info-label">Durée et date</span>
+                            <span class="offer-info-value">{{ offer.duration_weeks }} semaines</span>
+                            {% if offer.publication_date %}
+                                <span class="offer-info-value small-text">Publié le {{ offer.publication_date|date('d/m/Y') }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="offer-info-item">
+                        <i class="fa-solid fa-code"></i>
+                        <div>
+                            <span class="offer-info-label">Compétences</span>
+                            <ul class="offer-detail-skills">
+                                {% for skill in offer.skills %}
+                                    <li>{{ skill }}</li>
+                                {% else %}
+                                    <li>Non précisé</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="offer-info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <span class="offer-info-label">Localisation</span>
+                            <span class="offer-info-value">{{ offer.location ?? 'Non précisé' }}</span>
+                        </div>
+                    </div>
+
+                    <div class="offer-info-item">
+                        <i class="fa-solid fa-euro-sign"></i>
+                        <div>
+                            <span class="offer-info-label">Rémunération</span>
+                            <span class="offer-info-value">
+                                {% if offer.salary and offer.salary > 0 %}
+                                    {{ offer.salary }}€ / mois
+                                {% else %}
+                                    Non rémunéré
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="offer-detail-description">
+                    <h2>Description de l'offre</h2>
+                    <p>{{ offer.description ?? 'Aucune description disponible.' }}</p>
+                </div>
+            </div>
+
+            <div class="offer-detail-footer">
+                {% if session.user and session.user.user_type == 'student' %}
+                    <a href="/postuler/{{ offer.id_offer }}" class="btn-primary btn-postuler">Postuler</a>
+                {% else %}
+                    <a href="/connexion" class="btn-primary btn-postuler">Se connecter pour postuler</a>
+                {% endif %}
+            </div>
+
+        </div>
+    </section>
+</main>
+{% endblock %}

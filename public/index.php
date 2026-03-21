@@ -9,6 +9,7 @@
 
     use App\Controllers\HomeController;
     use App\Controllers\AuthController;
+    use App\Controllers\OfferController;
 
     session_start();
 
@@ -36,10 +37,19 @@
             $controller = new AuthController($twig);
             $controller->logout();
             break;
+        case 'offres':
+            $controller = new OfferController($twig);
+            $controller->offersList();
+            break;
         case 'mentions-legales':
             echo $twig->render('legal-notices.html.twig');
             break;
         default:
+            if (preg_match('#^offres/(\d+)$#', $route, $matches)) {
+                $controller = new OfferController($twig);
+                $controller->offerDetail($matches[1]);
+                break;
+            }
             header("HTTP/1.0 404 Not Found");
             echo $twig->render('404.html.twig');
             break;
