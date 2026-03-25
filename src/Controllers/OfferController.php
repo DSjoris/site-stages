@@ -12,6 +12,8 @@
         public function offersList() {
             $offers = $this->model->getAllOffers();
 
+            $id = $_GET['id'] ?? null;
+
             $keyword  = $_GET['keyword'] ?? '';
             $duration = $_GET['duration'] ?? '';
             $salary   = $_GET['salary'] ?? '';
@@ -22,6 +24,9 @@
 
             if ($isSearch) {
                 $offers = $this->model->searchOffers($keyword, $duration, $salary, $skill, $level);
+            } else if ($id) {
+                $offers = $this->offerDetail($id);
+                return;
             }
 
             foreach ($offers as &$offer) {
