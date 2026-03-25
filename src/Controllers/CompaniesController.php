@@ -272,6 +272,35 @@ class CompaniesController extends Controller
         header('Location: /companies');
         exit;
     }
+<<<<<<< HEAD
 }
 >>>>>>> d0e315a (Ajout page création entreprise)
+<<<<<<< HEAD
 >>>>>>> 24ed018 (Ajout page création entreprise)
+=======
+=======
+    public function companyDetailsPage(int $idCompany)
+    {
+        if ($idCompany <= 0) {
+            http_response_code(404);
+            echo "Entreprise introuvable.";
+            return;
+        }
+
+        $company = $this->model->getCompanyById($idCompany);
+        $offers = $this->model->getOffersByCompanyId($idCompany);
+
+        if (!$company) {
+            http_response_code(404);
+            echo "Entreprise introuvable.";
+            return;
+        }
+
+        echo $this->templateEngine->render('companies-details.html.twig', [
+            'company' => $company,
+            'offers' => $offers
+        ]);
+    }
+}
+>>>>>>> 41013a5 (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
+>>>>>>> fa7e88c (Ajout de la page company-details pour pouvoir voir chaque company individuellement)

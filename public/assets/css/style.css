@@ -642,12 +642,17 @@ main {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+<<<<<<< HEAD
     color: #111;
+=======
+    color: var(--primary);
+>>>>>>> 41013a5 (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
 }
 
 .companies-details-content p {
     margin: 0;
     line-height: 1.5;
+<<<<<<< HEAD
     color: #111;
 }
 
@@ -657,6 +662,16 @@ main {
 
 .companies-details-content a {
     color: #111;
+=======
+}
+
+.companies-details-content strong {
+    color: var(--primary);
+}
+
+.companies-details-content a {
+    color: var(--primary);
+>>>>>>> 41013a5 (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
     text-decoration: underline;
 }
 
@@ -687,6 +702,7 @@ main {
     color: #555;
     font-style: italic;
 }
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
@@ -733,7 +749,12 @@ main {
 }
 
 >>>>>>> 4b8b3be (Ajout page création entreprise + amélioration CSS)
+<<<<<<< HEAD
 >>>>>>> a778142 (Ajout page création entreprise + amélioration CSS)
+=======
+=======
+>>>>>>> 41013a5 (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
+>>>>>>> fa7e88c (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
 
 /* footer.php */
 .footer {

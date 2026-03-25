@@ -117,6 +117,7 @@
                 $controller->createCompanyPage();
             }
             break;
+<<<<<<< HEAD
 >>>>>>> d0e315a (Ajout page création entreprise)
 >>>>>>> 24ed018 (Ajout page création entreprise)
         default:
@@ -124,4 +125,15 @@
             echo $twig->render('404.html.twig');
             break;
     }
+=======
+       case (preg_match('#^companies/details/(\d+)$#', $route, $matches) ? true : false):
+            $controller = new CompaniesController($twig);
+            $controller->companyDetailsPage((int)$matches[1]);
+            break;
+        default:
+            header("HTTP/1.0 404 Not Found");
+            echo $twig->render('404.html.twig');
+            break;    
+        }
+>>>>>>> 41013a5 (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
 ?>

@@ -94,6 +94,7 @@ class CompaniesModel extends MySQLDatabase
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+<<<<<<< HEAD
 
     public function getUserReview(int $companyId, int $userId)
     {
@@ -175,6 +176,11 @@ class CompaniesModel extends MySQLDatabase
         ]);
     }
 >>>>>>> d0e315a (Ajout page création entreprise)
+<<<<<<< HEAD
 >>>>>>> 24ed018 (Ajout page création entreprise)
+=======
+=======
+>>>>>>> 41013a5 (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
+>>>>>>> fa7e88c (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
 }
 ?>
