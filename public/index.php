@@ -20,39 +20,48 @@
     $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
     $basePath = '/';
-    $route = str_replace($basePath, '', $request_uri);
-    $route = trim($route, '/');
+    $route = trim($request_uri, '/');
 
-    switch($route) {
-        case '':
-        case 'accueil':
-            $controller = new HomeController($twig);
-            $controller->homePage();
-            break;
-        case 'connexion':
-            $controller = new AuthController($twig);
-            $controller->loginAction();
-            break;
-        case 'logout':
-            $controller = new AuthController($twig);
-            $controller->logout();
-            break;
-        case 'offres':
-            $controller = new OfferController($twig);
-            $controller->offersList();
-            break;
-        case 'mentions-legales':
-            echo $twig->render('legal-notices.html.twig');
-            break;
-        default:
-            if (preg_match('#^offres/(\d+)$#', $route, $matches)) {
-                $controller = new OfferController($twig);
-                $controller->offerDetail($matches[1]);
-                break;
+    $routes = [
+        ['GET', '', HomeController::class, 'homePage'],
+        ['GET', 'accueil', HomeController::class, 'homePage'],
+        ['GET', 'connexion', AuthController::class, 'loginAction'],
+        ['GET', 'logout', AuthController::class, 'logout'],
+        ['GET', 'offres', OfferController::class, 'offersList'],
+        ['GET', 'mentions-legales', null, 'legal-notices.html.twig'],
+
+        // dynamiques
+        ['GET', 'offres/{id}', OfferController::class, 'offerDetail'],
+        ['GET', 'postuler/{id}', OfferController::class, 'applyToOffer'],
+    ];
+
+    $method = $_SERVER['REQUEST_METHOD'];
+
+    foreach ($routes as [$httpMethod, $path, $controllerClass, $action]) {
+
+        if ($method !== $httpMethod) continue;
+
+        // transforme {id} → regex
+        $pattern = preg_replace('#\{(\w+)\}#', '([0-9]+)', $path);
+        $pattern = "#^$pattern$#";
+
+        if (preg_match($pattern, $route, $matches)) {
+
+            array_shift($matches); // enlève le match complet
+
+            // cas page statique
+            if ($controllerClass === null) {
+                echo $twig->render($action);
+                exit;
             }
-            header("HTTP/1.0 404 Not Found");
-            echo $twig->render('404.html.twig');
-            break;
 
+            $controller = new $controllerClass($twig);
+            call_user_func_array([$controller, $action], $matches);
+            exit;
+        }
     }
+
+    // 404
+    header("HTTP/1.0 404 Not Found");
+    echo $twig->render('404.html.twig');
 ?>
