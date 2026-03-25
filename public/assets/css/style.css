@@ -329,7 +329,18 @@ main {
 
 .company-card-content {
     display: flex;
+<<<<<<< HEAD
     justify-content: flex-end;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    justify-content: flex-end;
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
+=======
+    justify-content: flex-end;
+>>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
+>>>>>>> 26ce283 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
     flex-direction: column;
     gap: 0.5rem;
     color: #333;
@@ -356,6 +367,14 @@ main {
     justify-content: center;
     align-items: center;
     min-width: 120px; 
+}
+
+.company-description-preview {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .company-description-preview {
@@ -510,9 +529,12 @@ main {
 
 .company-create-actions .btn-primary:hover {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     transform: translateY(-2px);
 >>>>>>> 4b8b3be (Ajout page création entreprise + amélioration CSS)
+=======
+>>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
@@ -672,6 +694,43 @@ main {
 >>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 =======
 
+.address-field {
+    position: relative;
+}
+
+.address-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.address-dropdown.hidden {
+    display: none;
+}
+
+.address-option {
+    padding: 12px 14px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1.4;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.address-option:last-child {
+    border-bottom: none;
+}
+
+.address-option:hover {
+    background: #f5f7fa;
+}
 
 >>>>>>> 4b8b3be (Ajout page création entreprise + amélioration CSS)
 >>>>>>> a778142 (Ajout page création entreprise + amélioration CSS)

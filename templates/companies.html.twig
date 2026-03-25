@@ -11,12 +11,16 @@
                 <input type="text" name="search" class="companies-search-input" placeholder="Rechercher une entreprise" value="{{ search|default('') }}">
 =======
             <form method="GET" action="/companies" class="companies-search-form">
+<<<<<<< HEAD
                 <input type="text" name="search" class="companies-search-input" placeholder="Rechercher une entreprise..." value="{{ search|default('') }}">
 >>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 =======
             <form method="GET" action="/companies" class="companies-search-form">
                 <input type="text" name="search" class="companies-search-input" placeholder="Rechercher une entreprise..." value="{{ search|default('') }}">
 >>>>>>> cbf3335 (fix name : Companies.html.twig -> companies.html.twig)
+=======
+                <input type="text" name="search" class="companies-search-input" placeholder="Rechercher une entreprise" value="{{ search|default('') }}">
+>>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
                 <button type="submit" class="btn-primary">Rechercher</button>
             </form>
         </section>
@@ -51,6 +55,7 @@
                     <div class="company-card-content">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         {% if company.ville is defined and company.ville %}
                             <p><strong>Ville :</strong> {{ company.ville }}</p>
                         {% endif %}
@@ -70,6 +75,14 @@
 >>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 =======
 >>>>>>> cbf3335 (fix name : Companies.html.twig -> companies.html.twig)
+=======
+                        {% if company.address is defined and company.address %}
+                            <p><strong>Adresse :</strong> {{ company.address }}</p>
+                        {% endif %}
+
+                        {% if company.description is defined and company.description %}
+                            <p class="company-description-preview">{{ company.description }}</p>
+>>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
                         {% else %}
                             <p>Aucune description disponible.</p>
                         {% endif %}

@@ -60,6 +60,7 @@ class CompaniesController extends Controller
         $name = trim($_POST['name'] ?? '');
         $sector = trim($_POST['sector'] ?? '');
 <<<<<<< HEAD
+<<<<<<< HEAD
         $address = trim($_POST['address'] ?? '');
         $country = trim($_POST['country'] ?? '');
         $siret = trim($_POST['siret'] ?? '');
@@ -91,13 +92,35 @@ class CompaniesController extends Controller
             $errors[] = "L'URL du site web n'est pas valide.";
 =======
         $city = trim($_POST['city'] ?? '');
+=======
+        $address = trim($_POST['address'] ?? '');
+        $siret = trim($_POST['siret'] ?? '');
+        $website = trim($_POST['website'] ?? '');
+>>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
         $description = trim($_POST['description'] ?? '');
 
         $errors = [];
+        $allowedSectors = ['primaire', 'secondaire', 'tertiaire'];
 
         if ($name === '') {
             $errors[] = "Le nom de l'entreprise est obligatoire.";
 >>>>>>> d0e315a (Ajout page création entreprise)
+        }
+
+        if (!in_array($sector, $allowedSectors, true)) {
+            $errors[] = "Le secteur sélectionné est invalide.";
+        }
+
+        if ($address === '') {
+            $errors[] = "L'adresse est obligatoire.";
+        }
+
+        if (!preg_match('/^\d{14}$/', $siret)) {
+            $errors[] = "Le numéro de SIRET doit contenir exactement 14 chiffres.";
+        }
+
+        if ($website !== '' && !filter_var($website, FILTER_VALIDATE_URL)) {
+            $errors[] = "L'URL du site web n'est pas valide.";
         }
 
         if (!empty($errors)) {
@@ -107,12 +130,18 @@ class CompaniesController extends Controller
                     'name' => $name,
                     'sector' => $sector,
 <<<<<<< HEAD
+<<<<<<< HEAD
                     'address' => $address,
                     'siret' => $siret,
                     'website' => $website,
 =======
                     'city' => $city,
 >>>>>>> d0e315a (Ajout page création entreprise)
+=======
+                    'address' => $address,
+                    'siret' => $siret,
+                    'website' => $website,
+>>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
                     'description' => $description
                 ]
             ]);
@@ -120,6 +149,9 @@ class CompaniesController extends Controller
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
         $this->model->createCompany(
             $name,
             $sector,
@@ -128,6 +160,7 @@ class CompaniesController extends Controller
             $website,
             $description
         );
+<<<<<<< HEAD
 
         header('Location: /entreprises');
         exit;
@@ -233,6 +266,8 @@ class CompaniesController extends Controller
 >>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 =======
         $this->model->createCompany($name, $sector, $city, $description);
+=======
+>>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
 
         header('Location: /companies');
         exit;

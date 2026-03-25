@@ -158,18 +158,20 @@ class CompaniesModel extends MySQLDatabase
 >>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 =======
     
-    public function createCompany(string $name, string $sector, string $city, string $description): bool
+    public function createCompany($name, $sector, $address, $siret, $website, $description)
     {
-        $sql = "INSERT INTO companies (name, sector, city, description)
-                VALUES (:name, :sector, :city, :description)";
+        $sql = "INSERT INTO companies (name, sector, address, siret, website, description)
+                VALUES (:name, :sector, :address, :siret, :website, :description)";
 
         $stmt = $this->db->prepare($sql);
 
-        return $stmt->execute([
-            ':name' => $name,
-            ':sector' => $sector !== '' ? $sector : null,
-            ':city' => $city !== '' ? $city : null,
-            ':description' => $description !== '' ? $description : null,
+        $stmt->execute([
+            'name' => $name,
+            'sector' => $sector,
+            'address' => $address,
+            'siret' => $siret,
+            'website' => $website,
+            'description' => $description
         ]);
     }
 >>>>>>> d0e315a (Ajout page création entreprise)

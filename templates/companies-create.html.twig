@@ -32,6 +32,9 @@
                 <div class="input-field company-field">
                     <label for="sector" class="input-label">Secteur</label>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
                     <select id="sector" name="sector" class="form-control" required>
                         <option value=""> Choisir un secteur </option>
                         <option value="primaire" {{ old.sector|default('') == 'primaire' ? 'selected' : '' }}>Primaire</option>
@@ -39,6 +42,7 @@
                         <option value="tertiaire" {{ old.sector|default('') == 'tertiaire' ? 'selected' : '' }}>Tertiaire</option>
                     </select>
                 </div>
+<<<<<<< HEAD
                 <div class="address-fields">
                     <div class="input-field company-field address-field">
                         <label for="address" class="input-label">Adresse</label>
@@ -82,17 +86,44 @@
                         value="{{ old.website|default('') }}"
                         required
 =======
+=======
+
+                <div class="input-field company-field address-field">
+                    <label for="address" class="input-label">Adresse</label>
+
+>>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
                     <input
                         type="text"
-                        id="sector"
-                        name="sector"
+                        id="address"
+                        name="address"
                         class="form-control"
+<<<<<<< HEAD
                         value="{{ old.sector|default('') }}"
 >>>>>>> 4b8b3be (Ajout page création entreprise + amélioration CSS)
+=======
+                        value="{{ old.address|default('') }}"
+                        placeholder="Ex : 10 rue de la Paix, 75002 Paris"
+                        autocomplete="off"
+                    >
+
+                    <div id="address-dropdown" class="address-dropdown hidden"></div>
+                </div>
+
+                <div class="input-field company-field">
+                    <label for="website" class="input-label">Site Web </label>
+                    <input
+                        type="text"
+                        id="website"
+                        name="website"
+                        class="form-control"
+                        value="{{ old.website|default('') }}"
+                        required
+>>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
                     >
                 </div>
 
                 <div class="input-field company-field">
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <label for="siret" class="input-label">Numéro de SIRET</label>
                     <input
@@ -107,13 +138,24 @@
                         inputmode="numeric"
 =======
                     <label for="city" class="input-label">Ville</label>
+=======
+                    <label for="siret" class="input-label">Numéro de SIRET</label>
+>>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
                     <input
                         type="text"
-                        id="city"
-                        name="city"
+                        id="siret"
+                        name="siret"
                         class="form-control"
+<<<<<<< HEAD
                         value="{{ old.city|default('') }}"
 >>>>>>> 4b8b3be (Ajout page création entreprise + amélioration CSS)
+=======
+                        value="{{ old.siret|default('') }}"
+                        placeholder="Ex : 73282932000074"
+                        maxlength="14"
+                        pattern="\d{14}"
+                        inputmode="numeric"
+>>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
                     >
                 </div>
 
@@ -135,7 +177,11 @@
     </div>
 </main>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 4b8b3be (Ajout page création entreprise + amélioration CSS)
+=======
+
+>>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
 {% endblock %}
