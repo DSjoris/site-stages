@@ -401,6 +401,13 @@ main {
     color: var(--text);
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4b8b3be (Ajout page création entreprise + amélioration CSS)
+>>>>>>> a778142 (Ajout page création entreprise + amélioration CSS)
 /* create company.php */
 
 .company-create-page {
@@ -502,6 +509,10 @@ main {
 }
 
 .company-create-actions .btn-primary:hover {
+<<<<<<< HEAD
+=======
+    transform: translateY(-2px);
+>>>>>>> 4b8b3be (Ajout page création entreprise + amélioration CSS)
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
@@ -520,6 +531,7 @@ main {
     font-weight: bold;
     font-size: 0.9rem;
 }
+<<<<<<< HEAD
 .address-fields {
     display: flex;
     justify-content: flex-end;
@@ -654,6 +666,15 @@ main {
     font-style: italic;
 }
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
+=======
+
+
+>>>>>>> 4b8b3be (Ajout page création entreprise + amélioration CSS)
+>>>>>>> a778142 (Ajout page création entreprise + amélioration CSS)
 
 /* footer.php */
 .footer {
@@ -834,6 +855,16 @@ main {
     }
     .company-list {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .company-field {
+    max-width: none;
+    }
+    .company-create-card {
+        padding: 2.5rem;
+    }
+
+    .company-create-actions {
+        flex-direction: row;
     }
     .pagination {
         flex-direction: row;

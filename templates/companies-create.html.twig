@@ -31,6 +31,7 @@
 
                 <div class="input-field company-field">
                     <label for="sector" class="input-label">Secteur</label>
+<<<<<<< HEAD
                     <select id="sector" name="sector" class="form-control" required>
                         <option value=""> Choisir un secteur </option>
                         <option value="primaire" {{ old.sector|default('') == 'primaire' ? 'selected' : '' }}>Primaire</option>
@@ -80,10 +81,19 @@
                         class="form-control"
                         value="{{ old.website|default('') }}"
                         required
+=======
+                    <input
+                        type="text"
+                        id="sector"
+                        name="sector"
+                        class="form-control"
+                        value="{{ old.sector|default('') }}"
+>>>>>>> 4b8b3be (Ajout page création entreprise + amélioration CSS)
                     >
                 </div>
 
                 <div class="input-field company-field">
+<<<<<<< HEAD
                     <label for="siret" class="input-label">Numéro de SIRET</label>
                     <input
                         type="text"
@@ -95,6 +105,15 @@
                         maxlength="14"
                         pattern="\d{14}"
                         inputmode="numeric"
+=======
+                    <label for="city" class="input-label">Ville</label>
+                    <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        class="form-control"
+                        value="{{ old.city|default('') }}"
+>>>>>>> 4b8b3be (Ajout page création entreprise + amélioration CSS)
                     >
                 </div>
 
@@ -115,5 +134,8 @@
         </section>
     </div>
 </main>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4b8b3be (Ajout page création entreprise + amélioration CSS)
 {% endblock %}
