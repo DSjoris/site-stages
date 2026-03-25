@@ -12,9 +12,21 @@
         public function offersList() {
             $offers = $this->model->getAllOffers();
 
-            foreach ($offers as &$offer) {
-                $offer['skills'] = $offer['skills_list'] ? explode(', ', $offer['skills_list']) : [];
+            $keyword  = $_GET['keyword'] ?? '';
+            $duration = $_GET['duration'] ?? '';
+            $salary   = $_GET['salary'] ?? '';
+            $skill    = $_GET['skill'] ?? '';
+            $level    = $_GET['level'] ?? '';
+
+            $isSearch = $keyword || $duration || $salary || $skill || $level;
+
+            if ($isSearch) {
+                $offers = $this->model->searchOffers($keyword, $duration, $salary, $skill, $level);
             }
+
+            foreach ($offers as &$offer) {
+                    $offer['skills'] = $offer['skills_list'] ? explode(', ', $offer['skills_list']) : [];
+                }
 
             echo $this->templateEngine->render('offers.html.twig', [
                 'offers' => $offers

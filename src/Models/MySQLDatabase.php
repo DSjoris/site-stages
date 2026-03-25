@@ -98,7 +98,7 @@
             return $stmt->fetch();
         }
         public function searchOffers($keyword = '', $duration = '', $salary = '', $skill = '', $level = '') {
-            $sql = "SELECT offers.title, offers.duration_weeks, offers.salary, offers.study_level,
+            $sql = "SELECT offers.id_offer, offers.title, offers.duration_weeks, offers.salary, offers.study_level,
                         companies.name AS company,
                         SUBSTRING_INDEX(GROUP_CONCAT(skills.name SEPARATOR ', '), ', ', 3) AS skills_list
                     FROM offers
