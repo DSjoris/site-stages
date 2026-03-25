@@ -50,6 +50,7 @@
                             </ul>
                         </div>
                     </div>
+
                     <div class="offer-info-item">
                         <i class="fa-solid fa-location-dot"></i>
                         <div>
@@ -71,7 +72,6 @@
                             </span>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="offer-detail-description">
@@ -82,7 +82,7 @@
 
             <div class="offer-detail-footer">
                 {% if session.user and session.user.user_type == 'student' %}
-                    <a href="/postuler/{{ offer.id_offer }}" class="btn-primary btn-postuler">Postuler</a>
+                    <button onclick="openModal()" class="btn-primary btn-postuler">Postuler</button>
                 {% else %}
                     <a href="/connexion" class="btn-primary btn-postuler">Se connecter pour postuler</a>
                 {% endif %}
@@ -90,5 +90,27 @@
 
         </div>
     </section>
+
+    {% if session.user and session.user.user_type == 'student' %}
+    <div class="modal-overlay" id="modalPostuler">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2>Postuler — {{ offer.title }}</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <form action="/postuler/{{ offer.id_offer }}" method="POST" enctype="multipart/form-data">
+                <div class="input-field">
+                    <label class="input-label">Lettre de motivation</label>
+                    <textarea name="message" class="input" rows="8" maxlength="1800" placeholder="Présentez-vous en quelques mots... (300 mots max)"></textarea>
+                </div>
+                <div class="input-field">
+                    <label class="input-label">CV (PDF uniquement)</label>
+                    <input type="file" name="cv" accept=".pdf" class="input">
+                </div>
+                <button type="submit" class="btn-primary w-full">Envoyer ma candidature</button>
+            </form>
+        </div>
+    </div>
+    {% endif %}
 </main>
 {% endblock %}

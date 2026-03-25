@@ -136,6 +136,28 @@
             $stmt->execute($params);
             return $stmt->fetchAll();
         }
+        public function saveApplication($id_student, $id_offer, $cover_letter, $id_cv) {
+            $sql = "INSERT INTO applications (id_student, id_offer, application_status, cover_letter, id_cv)
+                    VALUES (:id_student, :id_offer, 'En attente', :cover_letter, :id_cv)";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute([
+                'id_student' => $id_student,
+                'id_offer' => $id_offer,
+                'cover_letter' => $cover_letter,
+                'id_cv' => $id_cv
+            ]);
+            return $this->db->lastInsertId();
+        }
+
+        public function saveCV($id_student, $chemin_cv) {
+            $sql = "INSERT INTO cv (id_student, chemin_cv) VALUES (:id_student, :chemin_cv)";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute([
+                'id_student' => $id_student,
+                'chemin_cv' => $chemin_cv
+            ]);
+            return $this->db->lastInsertId();
+        }
         
     }
 ?>

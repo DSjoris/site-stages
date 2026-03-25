@@ -23,5 +23,12 @@
         public function searchOffers($keyword = '', $duration = '', $salary = '', $skill = '', $level = '') {
             return $this->db->searchOffers($keyword, $duration, $salary, $skill, $level);
         }
+        public function saveApplication($id_student, $id_offer, $cover_letter, $id_cv) {
+            return $this->db->saveApplication($id_student, $id_offer, $cover_letter, $id_cv);
+        }
+
+        public function saveCV($id_student, $chemin_cv) {
+            return $this->db->saveCV($id_student, $chemin_cv);
+        }
     }
 ?>

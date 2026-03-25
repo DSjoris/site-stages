@@ -53,5 +53,30 @@
                 'offer' => $offer
             ]);
         }
+        public function applyToOffer($id_offer) {
+            if (!isset($_SESSION['user']) || $_SESSION['user']['user_type'] !== 'student') {
+                header('Location: /connexion');
+                return;
+            }
+
+            $cover_letter = $_POST['message'] ?? '';
+            $id_student = $_SESSION['user']['id'];
+
+            $id_cv = null;
+            if (isset($_FILES['cv']) && $_FILES['cv']['error'] === 0) {
+                $upload_dir = __DIR__ . '/../../public/uploads/cv/';
+                if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
+                
+                $filename = uniqid() . '_' . basename($_FILES['cv']['name']);
+                $filepath = $upload_dir . $filename;
+                
+                if (move_uploaded_file($_FILES['cv']['tmp_name'], $filepath)) {
+                    $id_cv = $this->model->saveCV($id_student, 'uploads/cv/' . $filename);
+                }
+            }
+
+            $this->model->saveApplication($id_student, $id_offer, $cover_letter, $id_cv);
+            header('Location: /offres/' . $id_offer . '?success=1');
+        }
     }
 ?>
