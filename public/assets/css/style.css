@@ -222,8 +222,9 @@ main {
 .footer-copyright {
     font-weight: bold;
 }
+
 .filters {
-    margin-top: 1rem; 
+    margin-top: 1rem;
 }
 
 /* Media Queries */
@@ -305,12 +306,6 @@ main {
     color: #e63946;
 }
 
-.offer-detail-body {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
 .offer-detail-info {
     display: flex;
     flex-direction: column;
@@ -323,7 +318,7 @@ main {
     gap: 0.8rem;
 }
 
-.offer-info-item > i {
+.offer-info-item>i {
     color: var(--primary);
     font-size: 1.1rem;
     margin-top: 0.1rem;
@@ -331,7 +326,7 @@ main {
     flex-shrink: 0;
 }
 
-.offer-info-item > div {
+.offer-info-item>div {
     display: flex;
     flex-direction: column;
 }
