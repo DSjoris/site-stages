@@ -26,6 +26,17 @@
     $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $route = trim($request_uri, '/');
     
+<<<<<<< HEAD
+=======
+=======
+    $twig->addGlobal('session', $_SESSION);
+
+    $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+    $route = trim($request_uri, '/');
+
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
+>>>>>>> 24ed018 (Ajout page création entreprise)
     switch($route) {
         case '':
         case 'accueil':
@@ -85,6 +96,29 @@
             $idCompany = isset($_GET['id']) ? (int) $_GET['id'] : 0;
             $controller->companyDetailsPage($idCompany);
             break;
+<<<<<<< HEAD
+=======
+=======
+        case 'mentions-legales':
+            echo $twig->render('legal-notices.html.twig');
+            break;
+        case 'companies':
+            $controller = new CompaniesController($twig);
+            $controller->companiesPage();
+            break;
+<<<<<<< HEAD
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
+=======
+        case 'companies/create':
+            $controller = new CompaniesController($twig);
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $controller->storeCompany();
+            } else {
+                $controller->createCompanyPage();
+            }
+            break;
+>>>>>>> d0e315a (Ajout page création entreprise)
+>>>>>>> 24ed018 (Ajout page création entreprise)
         default:
             header("HTTP/1.0 404 Not Found");
             echo $twig->render('404.html.twig');

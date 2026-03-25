@@ -39,6 +39,13 @@ class CompaniesController extends Controller
             'search' => $search
         ]);
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d0e315a (Ajout page création entreprise)
+>>>>>>> 24ed018 (Ajout page création entreprise)
 
     public function createCompanyPage()
     {
@@ -52,6 +59,7 @@ class CompaniesController extends Controller
     {
         $name = trim($_POST['name'] ?? '');
         $sector = trim($_POST['sector'] ?? '');
+<<<<<<< HEAD
         $address = trim($_POST['address'] ?? '');
         $country = trim($_POST['country'] ?? '');
         $siret = trim($_POST['siret'] ?? '');
@@ -81,6 +89,15 @@ class CompaniesController extends Controller
 
         if ($website !== '' && !filter_var($website, FILTER_VALIDATE_URL)) {
             $errors[] = "L'URL du site web n'est pas valide.";
+=======
+        $city = trim($_POST['city'] ?? '');
+        $description = trim($_POST['description'] ?? '');
+
+        $errors = [];
+
+        if ($name === '') {
+            $errors[] = "Le nom de l'entreprise est obligatoire.";
+>>>>>>> d0e315a (Ajout page création entreprise)
         }
 
         if (!empty($errors)) {
@@ -89,15 +106,20 @@ class CompaniesController extends Controller
                 'old' => [
                     'name' => $name,
                     'sector' => $sector,
+<<<<<<< HEAD
                     'address' => $address,
                     'siret' => $siret,
                     'website' => $website,
+=======
+                    'city' => $city,
+>>>>>>> d0e315a (Ajout page création entreprise)
                     'description' => $description
                 ]
             ]);
             return;
         }
 
+<<<<<<< HEAD
         $this->model->createCompany(
             $name,
             $sector,
@@ -203,3 +225,18 @@ class CompaniesController extends Controller
         exit;
     }
 }
+<<<<<<< HEAD
+=======
+=======
+}
+?>
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
+=======
+        $this->model->createCompany($name, $sector, $city, $description);
+
+        header('Location: /companies');
+        exit;
+    }
+}
+>>>>>>> d0e315a (Ajout page création entreprise)
+>>>>>>> 24ed018 (Ajout page création entreprise)

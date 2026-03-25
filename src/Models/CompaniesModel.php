@@ -52,6 +52,11 @@ class CompaniesModel extends MySQLDatabase
 
         return (int) $result['total'];
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 24ed018 (Ajout page création entreprise)
     
     public function createCompany($name, $sector, $address, $siret, $website, $description)
     {
@@ -147,5 +152,27 @@ class CompaniesModel extends MySQLDatabase
 
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
+=======
+    
+    public function createCompany(string $name, string $sector, string $city, string $description): bool
+    {
+        $sql = "INSERT INTO companies (name, sector, city, description)
+                VALUES (:name, :sector, :city, :description)";
+
+        $stmt = $this->db->prepare($sql);
+
+        return $stmt->execute([
+            ':name' => $name,
+            ':sector' => $sector !== '' ? $sector : null,
+            ':city' => $city !== '' ? $city : null,
+            ':description' => $description !== '' ? $description : null,
+        ]);
+    }
+>>>>>>> d0e315a (Ajout page création entreprise)
+>>>>>>> 24ed018 (Ajout page création entreprise)
 }
 ?>
