@@ -643,15 +643,20 @@ main {
     flex-direction: column;
     gap: 0.75rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: #111;
 =======
     color: var(--primary);
 >>>>>>> 41013a5 (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
+=======
+    color: #111;
+>>>>>>> 5ca906e (changement de couleur et ajout d'un fichier oublié dans le push précédent)
 }
 
 .companies-details-content p {
     margin: 0;
     line-height: 1.5;
+<<<<<<< HEAD
 <<<<<<< HEAD
     color: #111;
 }
@@ -663,15 +668,22 @@ main {
 .companies-details-content a {
     color: #111;
 =======
+=======
+    color: #111;
+>>>>>>> 5ca906e (changement de couleur et ajout d'un fichier oublié dans le push précédent)
 }
 
 .companies-details-content strong {
-    color: var(--primary);
+    color: #111;
 }
 
 .companies-details-content a {
+<<<<<<< HEAD
     color: var(--primary);
 >>>>>>> 41013a5 (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
+=======
+    color: #111;
+>>>>>>> 5ca906e (changement de couleur et ajout d'un fichier oublié dans le push précédent)
     text-decoration: underline;
 }
 
