@@ -7,6 +7,7 @@
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
     $dotenv->load();
 
+    use public\hash;
     use App\Controllers\HomeController;
     use App\Controllers\AuthController;
     use App\Controllers\OfferController;

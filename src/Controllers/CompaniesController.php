@@ -28,10 +28,25 @@ class CompaniesController extends Controller
         $totalCompanies = $this->model->countCompanies($search);
         $totalPages = (int) ceil($totalCompanies / $limit);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
+>>>>>>> 401ad78 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
         foreach ($companies as &$company) {
             $company['ville'] = $this->extractVille($company['address']);
         }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
+=======
+>>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
+>>>>>>> 401ad78 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
         echo $this->templateEngine->render('companies.html.twig', [
             'companies' => $companies,
             'currentPage' => $page,
@@ -301,6 +316,26 @@ class CompaniesController extends Controller
             'offers' => $offers
         ]);
     }
+<<<<<<< HEAD
 }
 >>>>>>> 41013a5 (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
+<<<<<<< HEAD
 >>>>>>> fa7e88c (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
+=======
+=======
+
+    private function extractVille($adress)
+    {
+        if (!$adress) {
+            return '';
+        }
+
+        if (preg_match('/\b\d{5}\s+(.+)$/', $adress, $matches)) {
+            return $matches[1];
+        }
+
+        return $adress;
+    }
+}
+>>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
+>>>>>>> 401ad78 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)

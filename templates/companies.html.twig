@@ -56,6 +56,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         {% if company.ville is defined and company.ville %}
                             <p><strong>Ville :</strong> {{ company.ville }}</p>
                         {% endif %}
@@ -78,6 +79,10 @@
 =======
                         {% if company.address is defined and company.address %}
                             <p><strong>Adresse :</strong> {{ company.address }}</p>
+=======
+                        {% if company.ville is defined and company.ville %}
+                            <p><strong>Ville :</strong> {{ company.ville }}</p>
+>>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
                         {% endif %}
 
                         {% if company.description is defined and company.description %}
@@ -87,6 +92,7 @@
                             <p>Aucune description disponible.</p>
                         {% endif %}
                     </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                     <div class="company-actions">
@@ -110,6 +116,18 @@
 >>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 =======
 >>>>>>> cbf3335 (fix name : Companies.html.twig -> companies.html.twig)
+=======
+                    <div class="company-actions">
+                        {% if session.user is defined and session.user.user_type is defined and session.user.user_type in ['admin', 'pilote'] %}
+                            <button type="button" class="btn-primary company-actions-btn">
+                                Modifier
+                            </button>
+                        {% endif %}
+                        <a href="/companies/details/{{ company.id_company }}" class="btn-primary company-actions-btn">
+                            Détails
+                        </a>
+                    </div>
+>>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
                 </article>
             {% else %}
                 <p>Aucune entreprise disponible pour le moment.</p>

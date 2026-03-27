@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 // navbar - burger menu
 =======
 >>>>>>> 91e6c56 (Ajout de la page des entreprises avec une recherche et une pagination)
@@ -167,6 +168,8 @@ inputCv.addEventListener('change', () => {
 =======
 console.log("JS OK");
 
+=======
+>>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
 document.addEventListener('DOMContentLoaded', function () {
     const burger = document.querySelector('.burger');
     const navLinks = document.querySelector('.nav-links');

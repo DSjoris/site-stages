@@ -356,12 +356,20 @@ main {
     margin-left: auto;
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
+>>>>>>> 401ad78 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
 .company-actions {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
 }
 
+<<<<<<< HEAD
 .company-details-btn {
     display: flex;
     justify-content: center;
@@ -375,6 +383,22 @@ main {
     line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+<<<<<<< HEAD
+=======
+=======
+=======
+>>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
+.company-details-btn {
+    display: flex;
+    justify-content: center;
+<<<<<<< HEAD
+    width: auto;
+>>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
+=======
+    align-items: center;
+    min-width: 120px; 
+>>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
+>>>>>>> 401ad78 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
 }
 
 .company-description-preview {
