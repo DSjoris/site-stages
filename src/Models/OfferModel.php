@@ -23,12 +23,21 @@
         public function searchOffers($keyword = '', $duration = '', $salary = '', $skill = '', $level = '') {
             return $this->db->searchOffers($keyword, $duration, $salary, $skill, $level);
         }
-        public function saveApplication($id_student, $id_offer, $cover_letter, $id_cv) {
-            return $this->db->saveApplication($id_student, $id_offer, $cover_letter, $id_cv);
+
+        public function hasApplied($id_student, $id_offer) {
+            return $this->db->hasApplied($id_student, $id_offer);
+        }
+
+        public function saveApplication($id_student, $id_offer, $id_cv, $cover_message) {
+            return $this->db->saveApplication($id_student, $id_offer, $id_cv, $cover_message);
         }
 
         public function saveCV($id_student, $chemin_cv) {
             return $this->db->saveCV($id_student, $chemin_cv);
+        }
+
+        public function getUserCVs($id_student) {
+            return $this->db->getUserCVs($id_student);
         }
     }
 ?>

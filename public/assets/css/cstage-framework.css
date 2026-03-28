@@ -8,6 +8,7 @@
     --primary-dark: #114252;
     --text: #fff;
     --text-grey: #6f6f6f;
+    --text-red: #ff4d4d;
 
     --border: rgb(173, 173, 173);
 }
@@ -20,6 +21,10 @@
 /* Text */
 .text-primary {
     color: var(--primary);
+}
+
+.error {
+    color: var(--text-red);
 }
 
 .bold {
@@ -61,9 +66,37 @@
     padding: 2rem;
 }
 
+.px-2 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.px-4 {
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.py-2 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.my-2 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
 /* With & Height */
 .w-full {
     width: 100%;
+}
+
+.min-width-0 {
+    min-width: 0;
+}
+
+.min-height-0 {
+    min-height: 0;
 }
 
 .h-full {
@@ -95,6 +128,10 @@
     flex-direction: row;
 }
 
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
 .flex-center {
     display: flex;
     align-items: center;
@@ -103,6 +140,10 @@
 
 .align-center {
     align-items: center;
+}
+
+.align-left {
+    align-items: flex-start;
 }
 
 .justify-center {
@@ -121,14 +162,23 @@
     gap: 2rem;
 }
 
+.rounded {
+    border-radius: 6px;
+}
+
+/* Overflow */
+.overflow-hidden {
+    overflow: hidden;
+}
+
 /* Shadows */
 .shadow {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Buttons */
+/* Buttons & Badges */
 .btn-primary {
-    padding: 0.4rem;
+    padding: 0.5rem 2rem;
     cursor: pointer;
     border-radius: 6px;
     background-color: var(--primary);
@@ -136,16 +186,48 @@
     color: var(--text);
     font-weight: bold;
     transition: 0.4s;
+    text-align: center;
+    font-size: 1rem;
 }
 
 .btn-primary:hover {
     background-color: var(--primary-dark);
 }
 
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background-color: var(--primary);
+    color: var(--text);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+}
+
 /* Media Queries */
 @media (min-width: 768px) {
     .tab-flex-row {
         flex-direction: row;
+    }
+
+    .tab-flex-col {
+        flex-direction: column;
+    }
+
+    .tab-align-center {
+        align-items: center;
     }
 }
 
@@ -156,11 +238,6 @@
 
     input {
         font-size: 1rem;
-    }
-
-    .btn-primary {
-        font-size: 1rem;
-        padding: 0.5rem 0;
     }
 
     .text-primary {

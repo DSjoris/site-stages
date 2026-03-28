@@ -1,15 +1,15 @@
 <?php
     namespace App\Models;
 
-    class UserModel {
+    class StatsModel {
         private $db;
 
         public function __construct() {
             $this->db = new MySQLDatabase();
         }
 
-        public function getUser($email) {
-            return $this->db->getUser($email);
+        public function getStats() {
+            return $this->db->getStats();
         }
     }
 ?>

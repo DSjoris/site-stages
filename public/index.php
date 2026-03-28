@@ -15,7 +15,11 @@
 
     $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
     $twig = new \Twig\Environment($loader);
-    $twig->addGlobal('session', $_SESSION);
+    $twig->addGlobal('user', $_SESSION['user'] ?? null);
+
+    $errors = $_SESSION['errors'] ?? [];
+    unset($_SESSION['errors']);
+    $twig->addGlobal('errors', $errors);
 
     $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $route = ltrim($request_uri, '/');
@@ -36,22 +40,21 @@
             break;
         case 'offres':
             $controller = new OfferController($twig);
-            $controller->offersList();
+            $controller->offersPage();
             break;
         case 'mentions-legales':
             echo $twig->render('legal-notices.html.twig');
             break;
+        case 'postuler':
+            $controller = new OfferController($twig);
+
+            if($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $controller->apply();
+            } else {
+                $controller->applyPage();
+            }
+            break;
         default:
-            if (preg_match('#^offres/(\d+)$#', $route, $matches)) {
-                $controller = new OfferController($twig);
-                $controller->offerDetail($matches[1]);
-                break;
-            }
-            if (preg_match('#^postuler/(\d+)$#', $route, $matches)) {
-                $controller = new OfferController($twig);
-                $controller->applyToOffer($matches[1]);
-                break;
-            }
             header("HTTP/1.0 404 Not Found");
             echo $twig->render('404.html.twig');
             break;

@@ -1,0 +1,57 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}C'Stage - Postule !{% endblock %}
+
+{% block main %}
+<main>
+    <section class="h-full w-full flex align-center justify-center">
+        {% if user and user.user_type == 'student' %}
+        <div class="bg-white px-2 py-2 rounded flex-col align-center gap-1 shadow">
+            <div class="text-primary">
+                <h3>Postuler — {{ offer.title }}</h3>
+            </div>
+
+                <form id="applyForm" action="" method="POST" enctype="multipart/form-data" class="flex-col gap-1-5">
+                    <div class="flex-col gap-1">
+                        <label class="text-primary bold">Message de motivation</label>
+                        <textarea name="message" class="input flex w-full" rows="8" maxlength="500" placeholder="Présentez-vous en quelques mots... (500 caractères max)"></textarea>
+                    </div>
+
+                    {% if cvs %}
+                        <div class="flex-col gap-1">
+                            <label class="input-label">CV enregistrés</label>
+                            <div class="flex-col gap-1">
+                                {% for cv in cvs %}
+                                    <div class="flex-row align-center cursor-pointer gap-1 overflow-hidden">
+                                        <input type="radio" name="id_cv" value="{{ cv.id_cv }}">
+                                        <div class="flex-1 flex-row align-center">
+                                            <i class="fa-solid fa-file-pdf small-text"></i>
+                                            <span class="small-text">{{ cv.filename }}</span>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                <div class="flex-row align-center cursor-pointer gap-1">
+                                    <input type="radio" name="id_cv" value="none">
+                                    <span class="small-text">Aucun<span>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="flex-col gap-1">
+                        <label class="text-primary bold">Ajouter un CV</label>
+                        <input id="input-cv" type="file" name="cv" accept=".pdf" class="">
+                    </div>
+
+                    {% for error in errors %}
+                        <p class="error">{{ error }}</p>
+                    {% endfor %}
+
+                    <p id="errorApply" class="error"></p>
+
+                    <button type="submit" class="btn-primary w-full">Envoyer ma candidature</button>
+                </form>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}

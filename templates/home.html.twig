@@ -3,46 +3,9 @@
 {% block main %}
 <main>
     <!-- Section: recherche rapide d'offres -->
-    <section class="fast-search-section">
+    <section class="flex-col align-center gap-1 py-2"
         <h2>Offres du site</h2>
-        <form method="GET" action="/offres">
-            <div class="input-field">
-                <input type="text" name="keyword" class="input" 
-                    placeholder="Cybersécurité / Administrateur réseaux / BTP"
-                    value="{{ app.request.get('keyword') }}">
-                <button type="submit" class="btn-primary">Rechercher</button>
-            </div>
-
-            <div class="filters flex-row gap-1 justify-center flex-wrap">
-                <select name="duration" class="input">
-                    <option value="">Durée</option>
-                    <option value="4">4 semaines</option>
-                    <option value="6">6 semaines</option>
-                    <option value="12">12 semaines</option>
-                </select>
-
-                <select name="salary" class="input">
-                    <option value="">Salaire</option>
-                    <option value="0">Non rémunéré</option>
-                    <option value="500">500€+</option>
-                    <option value="1000">1000€+</option>
-                </select>
-
-                <select name="skill" class="input">
-                    <option value="">Compétences</option>
-                    <option value="php">PHP</option>
-                    <option value="python">Python</option>
-                    <option value="javascript">JavaScript</option>
-                </select>
-
-                <select name="level" class="input">
-                    <option value="">Niveau d'étude</option>
-                    <option value="bac2">Bac+2</option>
-                    <option value="bac3">Bac+3</option>
-                    <option value="bac5">Bac+5</option>
-                </select>
-            </div>
-        </form>
+        {% include 'components/search-offer.html.twig' %}
     </section>
 
 
@@ -72,7 +35,7 @@
             <div class="statistic-item">
                 <i class="fa-solid fa-building"></i>
                 <div class="statistic-item-data">
-                    <span class="text-primary bold">450+</span>
+                    <span class="text-primary bold">{{ stats.total_companies }}</span>
                     <span class="small-text">Entreprises</span>
                 </div>
             </div>
@@ -80,7 +43,7 @@
             <div class="statistic-item">
                 <i class="fa-brands fa-buffer"></i>
                 <div class="statistic-item-data">
-                    <span class="text-primary bold">1,200+</span>
+                    <span class="text-primary bold">{{ stats.total_offers }}</span>
                     <span class="small-text">Offres disponibles</span>
                 </div>
             </div>
@@ -88,7 +51,7 @@
             <div class="statistic-item">
                 <i class="fa-solid fa-user-graduate"></i>
                 <div class="statistic-item-data">
-                    <span class="text-primary bold">5,900+</span>
+                    <span class="text-primary bold">{{ stats.total_students }}</span>
                     <span class="small-text">Étudiants</span>
                 </div>
             </div>

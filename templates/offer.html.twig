@@ -8,8 +8,14 @@
         <div class="offer-detail-card">
 
             <div class="offer-detail-header">
-                <h1 class="offer-detail-title">{{ offer.title }}</h1>
-                {% if session.user and session.user.user_type == 'student' %}
+                <div class="flex-col tab-flex-row tab-align-center gap-1 align-left">
+                    <h1 class="offer-detail-title">{{ offer.title }}</h1>
+                    {% if alreadyApplied %}
+                        <span class="badge">POSTULÉ !</span>
+                    {% endif %}
+                </div>
+
+                {% if user and user.user_type == 'student' %}
                     <button class="wishlist-btn" title="Ajouter à la wishlist">
                         <i class="fa-regular fa-heart"></i>
                     </button>
@@ -62,7 +68,7 @@
                     <div class="offer-info-item">
                         <i class="fa-solid fa-euro-sign"></i>
                         <div>
-                            <span class="offer-info-label">Rémunération</span>
+                            <span class="offer-info-label">Gratification</span>
                             <span class="offer-info-value">
                                 {% if offer.salary and offer.salary > 0 %}
                                     {{ offer.salary }}€ / mois
@@ -81,8 +87,10 @@
             </div>
 
             <div class="offer-detail-footer">
-                {% if session.user and session.user.user_type == 'student' %}
-                    <button onclick="openModal()" class="btn-primary btn-postuler">Postuler</button>
+                {% if user and user.user_type == 'student' %}
+                    {% if not alreadyApplied %}
+                        <a href="/postuler?id={{ offer.id_offer }}" class="btn-primary">Postuler</a>
+                    {% endif %}
                 {% else %}
                     <a href="/connexion" class="btn-primary btn-postuler">Se connecter pour postuler</a>
                 {% endif %}
@@ -90,27 +98,5 @@
 
         </div>
     </section>
-
-    {% if session.user and session.user.user_type == 'student' %}
-    <div class="modal-overlay" id="modalPostuler">
-        <div class="modal-card">
-            <div class="modal-header">
-                <h2>Postuler — {{ offer.title }}</h2>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-            </div>
-            <form action="/postuler/{{ offer.id_offer }}" method="POST" enctype="multipart/form-data">
-                <div class="input-field">
-                    <label class="input-label">Lettre de motivation</label>
-                    <textarea name="message" class="input" rows="8" maxlength="1800" placeholder="Présentez-vous en quelques mots... (300 mots max)"></textarea>
-                </div>
-                <div class="input-field">
-                    <label class="input-label">CV (PDF uniquement)</label>
-                    <input type="file" name="cv" accept=".pdf" class="input">
-                </div>
-                <button type="submit" class="btn-primary w-full">Envoyer ma candidature</button>
-            </form>
-        </div>
-    </div>
-    {% endif %}
 </main>
 {% endblock %}

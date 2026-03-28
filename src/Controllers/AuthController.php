@@ -29,7 +29,6 @@
 
             $user = $this->model->getUser($email);
             
-            var_dump($user);
             if(password_verify($password, $user["password"])) {
                 session_start();
                 $_SESSION['user'] = [
@@ -47,6 +46,7 @@
         }
 
         public function logout() {
+            session_start();
             $_SESSION = [];
             session_destroy();
             header('Location: /connexion');

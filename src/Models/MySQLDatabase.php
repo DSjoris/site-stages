@@ -97,6 +97,7 @@
             $stmt->execute(['email' => $email]);
             return $stmt->fetch();
         }
+
         public function searchOffers($keyword = '', $duration = '', $salary = '', $skill = '', $level = '') {
             $sql = "SELECT offers.id_offer, offers.title, offers.duration_weeks, offers.salary, offers.study_level,
                         companies.name AS company,
@@ -136,28 +137,60 @@
             $stmt->execute($params);
             return $stmt->fetchAll();
         }
-        public function saveApplication($id_student, $id_offer, $cover_letter, $id_cv) {
-            $sql = "INSERT INTO applications (id_student, id_offer, application_status, cover_letter, id_cv)
-                    VALUES (:id_student, :id_offer, 'En attente', :cover_letter, :id_cv)";
+        
+        public function hasApplied($id_student, $id_offer) {
+            $sql = "SELECT COUNT(*) FROM applications WHERE id_student = :id_student AND id_offer = :id_offer";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute([
+                'id_student' => $id_student,
+                'id_offer' => $id_offer
+            ]);
+            return $stmt->fetchColumn() > 0;
+        }
+
+        public function saveApplication($id_student, $id_offer, $id_cv, $cover_message) {
+            if($this->hasApplied($id_student, $id_offer)) {
+                return false;
+            }
+
+            $sql = "INSERT INTO applications (id_student, id_offer, application_status, cover_message, id_cv)
+                    VALUES (:id_student, :id_offer, 'En attente', :cover_message, :id_cv)";
             $stmt = $this->db->prepare($sql);
             $stmt->execute([
                 'id_student' => $id_student,
                 'id_offer' => $id_offer,
-                'cover_letter' => $cover_letter,
-                'id_cv' => $id_cv
+                'id_cv' => $id_cv,
+                'cover_message' => $cover_message
             ]);
             return $this->db->lastInsertId();
         }
 
-        public function saveCV($id_student, $chemin_cv) {
-            $sql = "INSERT INTO cv (id_student, chemin_cv) VALUES (:id_student, :chemin_cv)";
+        public function saveCV($id_student, $path_cv) {
+            $sql = "INSERT INTO cv (id_student, path_cv) VALUES (:id_student, :path_cv)";
             $stmt = $this->db->prepare($sql);
             $stmt->execute([
                 'id_student' => $id_student,
-                'chemin_cv' => $chemin_cv
+                'path_cv' => $path_cv
             ]);
             return $this->db->lastInsertId();
         }
         
+
+        public function getUserCVs($id_student) {
+            $sql = "SELECT id_cv, path_cv FROM cv WHERE id_student = :id_student";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute(['id_student' => $id_student]);
+            return $stmt->fetchAll();
+        }
+
+        public function getStats() {
+            $sql = "SELECT 
+                        (SELECT COUNT(*) FROM offers) AS total_offers,
+                        (SELECT COUNT(*) FROM applications) AS total_applications,
+                        (SELECT COUNT(*) FROM students) AS total_students,
+                        (SELECT COUNT(*) FROM companies) AS total_companies";
+            $stmt = $this->db->query($sql);
+            return $stmt->fetch();
+        }
     }
 ?>

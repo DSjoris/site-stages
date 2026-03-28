@@ -4,21 +4,27 @@
 
 {% block main %}
 <main>
-    <section class="flex-col align-center gap-1 p-2 bg-white">
-        <h2>Toutes les offres</h2>
+    <section class="flex-col align-center gap-1">
+        <div class="flex-col align-center gap-1 my-2">
+            <h2 class="text-center">Rechercher une offre</h2>
+            {% include 'components/search-offer.html.twig' %}
+        </div>
 
-        <div class="offer-list flex-col gap-1">
-            {% for offer in offers %}
-                {% include 'components/offer.html.twig' with {
-                    'id': offer.id_offer,
-                    'title': offer.title,
-                    'society': offer.company,
-                    'skills': offer.skills,
-                    'duration': offer.duration_weeks
-                } %}
-            {% else %}
-                <p>Aucune offre disponible pour le moment.</p>
-            {% endfor %}
+        <div class="flex-col align-center gap-1 p-2 bg-white w-full">
+            <h2>Toutes les offres</h2>
+            <div class="offer-list flex-col gap-1">
+                {% for offer in offers %}
+                    {% include 'components/offer.html.twig' with {
+                        'id': offer.id_offer,
+                        'title': offer.title,
+                        'society': offer.company,
+                        'skills': offer.skills,
+                        'duration': offer.duration_weeks
+                    } %}
+                {% else %}
+                    <p>Aucune offre disponible pour le moment.</p>
+                {% endfor %}
+            </div>
         </div>
     </section>
 </main>
