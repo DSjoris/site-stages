@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}C'Stage - Ma Wishlist{% endblock %}
+
+{% block main %}
+<main>
+    <section class="h-full w-full">
+        {% if user and user.user_type == 'student' %}
+            <div class="bg-white px-2 py-2 rounded flex-col align-center gap-1 shadow w-full">
+                <div class="text-primary">
+                    <h3>Ma Wishlist</h3>
+                </div>
+
+                {% if wishlistOffers is not empty %}
+                    <div class="offer-list  flex-col gap-1">
+                        {% for offer in wishlistOffers %}
+                            {% include 'components/offer.html.twig' with {
+                                'id': offer.id_offer,
+                                'title': offer.title,
+                                'society': offer.company,
+                                'skills': offer.skills,
+                                'duration': offer.duration_weeks
+                            } %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>Votre wishlist est vide pour le moment.</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}
