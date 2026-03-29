@@ -192,5 +192,64 @@
             $stmt = $this->db->query($sql);
             return $stmt->fetch();
         }
+
+        public function isInWishlist($id_student, $id_offer) {
+            $sql = "SELECT 1 FROM wishlists WHERE id_student = :id_student AND id_offer = :id_offer LIMIT 1";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute([
+                'id_student' => $id_student,
+                'id_offer' => $id_offer
+            ]);
+            return $stmt->fetch() !== false;
+        }
+
+        public function toggleWishlist($id_student, $id_offer) {
+            $isInWishlist = $this->isInWishlist($id_student, $id_offer);
+            $sql = $isInWishlist
+                ? "DELETE FROM wishlists WHERE id_student = :id_student AND id_offer = :id_offer"
+                : "INSERT INTO wishlists (id_student, id_offer) VALUES (:id_student, :id_offer)";
+            $stmt = $this->db->prepare($sql);
+            return $stmt->execute([
+                'id_student' => $id_student,
+                'id_offer' => $id_offer
+            ]);
+        }
+
+        public function getUserWishlist($id_student) {
+            $sql = "SELECT offers.id_offer, offers.title, offers.duration_weeks,
+                        companies.name AS company,
+                        SUBSTRING_INDEX(GROUP_CONCAT(skills.name SEPARATOR ', '), ', ', 3) AS skills_list
+                    FROM wishlists
+                    JOIN offers ON wishlists.id_offer = offers.id_offer
+                    JOIN companies ON offers.id_company = companies.id_company
+                    LEFT JOIN offer_skills ON offer_skills.id_offer = offers.id_offer
+                    LEFT JOIN skills ON skills.id_skill = offer_skills.id_skill
+                    WHERE wishlists.id_student = :id_student
+                    GROUP BY offers.id_offer
+                    ORDER BY offers.publication_date DESC";
+
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute(['id_student' => $id_student]);
+            return $stmt->fetchAll();
+        }
+
+        public function getUserApplications($id_student) {
+            $sql = "SELECT offers.id_offer, offers.title, offers.duration_weeks,
+                        offers.publication_date, offers.salary, offers.study_level,
+                        offers.description, offers.location,
+                        companies.name AS company,
+                        SUBSTRING_INDEX(GROUP_CONCAT(skills.name SEPARATOR ', '), ', ', 3) AS skills_list
+                    FROM applications
+                    JOIN offers ON applications.id_offer = offers.id_offer
+                    JOIN companies ON offers.id_company = companies.id_company
+                    LEFT JOIN offer_skills ON offer_skills.id_offer = offers.id_offer
+                    LEFT JOIN skills ON skills.id_skill = offer_skills.id_skill
+                    WHERE applications.id_student = :id_student
+                    GROUP BY offers.id_offer";
+
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute(['id_student' => $id_student]);
+            return $stmt->fetchAll();
+        }
     }
 ?>

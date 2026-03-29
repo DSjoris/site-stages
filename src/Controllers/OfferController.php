@@ -9,6 +9,15 @@
             $this->templateEngine = $templateEngine;
         }
 
+        public function isStudent() {
+            $isStudent = isset($_SESSION['user']) && $_SESSION['user']['user_type'] === 'student';
+            if(!$isStudent) {
+                header('Location: /connexion');
+                exit;
+            }
+            return $isStudent;
+        }
+
         // Page des offres
         public function offersPage() {
             $offers = $this->model->getAllOffers();
@@ -51,18 +60,18 @@
 
             $offer['skills'] = $offer['skills_list'] ? explode(', ', $offer['skills_list']) : [];
 
+            $isStudent = isset($_SESSION['user']) && $_SESSION['user']['user_type'] === 'student';
+
             echo $this->templateEngine->render('offer.html.twig', [
                 'offer' => $offer,
-                'alreadyApplied' => isset($_SESSION['user']) && $_SESSION['user']['user_type'] === 'student' && $this->model->hasApplied($_SESSION['user']['id'], $id)
+                'alreadyApplied' => $isStudent && $this->model->hasApplied($_SESSION['user']['id'], $id),
+                'inWishlist' => $isStudent && $this->model->isInWishlist($_SESSION['user']['id'], $id)
             ]);
         }
 
         // Page de postulation à une offre
         public function applyPage() {
-            if (!isset($_SESSION['user']) || $_SESSION['user']['user_type'] !== 'student') {
-                header('Location: /connexion');
-                return;
-            }
+            $this->isStudent();
 
             $id_offer = $_GET['id'] ?? null;
             if (!$id_offer) {
@@ -93,12 +102,44 @@
             ]);
         }
 
-        // Fonction: postuler à une offre
-        public function apply() {
-            if (!isset($_SESSION['user']) || $_SESSION['user']['user_type'] !== 'student') {
+        // Page de wishlist
+        public function wishlistPage() {
+            $this->isStudent();
+
+            $id_student = $_SESSION['user']['id'];
+            $wishlistOffers = $this->model->getUserWishlist($id_student);
+
+            foreach ($wishlistOffers as &$offer) {
+                $offer['skills'] = $offer['skills_list'] ? explode(', ', $offer['skills_list']) : [];
+            }
+
+            echo $this->templateEngine->render('wishlist.html.twig', [
+                'wishlistOffers' => $wishlistOffers
+            ]);
+        }
+
+        // Page des candidatures
+        public function applicationsPage() {
+            if (!$this->isStudent()) {
                 header('Location: /connexion');
                 return;
             }
+
+            $id_student = $_SESSION['user']['id'];
+            $applications = $this->model->getUserApplications($id_student);
+
+            foreach ($applications as &$offer) {
+                $offer['skills'] = $offer['skills_list'] ? explode(', ', $offer['skills_list']) : [];
+            }
+
+            echo $this->templateEngine->render('application.html.twig', [
+                'applications' => $applications
+            ]);
+        }
+
+        // Fonction: postuler à une offre
+        public function apply() {
+            $this->isStudent();
 
             $id_offer = $_GET['id'] ?? null;
             if (!$id_offer) {
@@ -154,13 +195,25 @@
 
         // Fonction: obtenir les CV
         public function getUserCVs() {
-            if (!isset($_SESSION['user']) || $_SESSION['user']['user_type'] !== 'student') {
-                header('Location: /connexion');
+            $this->isStudent();
+
+            $id_student = $_SESSION['user']['id'];
+            return $this->model->getUserCVs($id_student);
+        }
+
+        // Fonction: toggle wishlist
+        public function toggleWishlist() {
+            $this->isStudent();
+
+            $id_offer = $_GET['id'] ?? null;
+            if (!$id_offer) {
+                header('Location: /offres');
                 return;
             }
 
             $id_student = $_SESSION['user']['id'];
-            return $this->model->getUserCVs($id_student);
+            $this->model->toggleWishlist($id_student, $id_offer);
+            header('Location: /offres?id=' . $id_offer);
         }
     }
 ?>

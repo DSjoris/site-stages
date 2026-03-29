@@ -39,5 +39,21 @@
         public function getUserCVs($id_student) {
             return $this->db->getUserCVs($id_student);
         }
+
+        public function isInWishlist($id_student, $id_offer) {
+            return $this->db->isInWishlist($id_student, $id_offer);
+        }
+
+        public function toggleWishlist($id_student, $id_offer) {
+            return $this->db->toggleWishlist($id_student, $id_offer);
+        }
+
+        public function getUserWishlist($id_student) {
+            return $this->db->getUserWishlist($id_student);
+        }
+
+        public function getUserApplications($id_student) {
+            return $this->db->getUserApplications($id_student);
+        }
     }
 ?>
