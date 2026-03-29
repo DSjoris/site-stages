@@ -1,24 +1,28 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}{{ offer.title }} - C'Stage{% endblock %}
+{% block title %}C'Stage - {{ offer.title }}{% endblock %}
 
 {% block main %}
 <main>
-    <section class="offer-detail-section">
-        <div class="offer-detail-card">
+    <section class="flex justify-center py-2 px-1">
+        <div class="w-full border rounded bg-white p-2 flex-col gap-1-5 shadow max-width-900">
 
-            <div class="offer-detail-header">
+            <div class="flex justify-between align-left gap-1">
                 <div class="flex-col tab-flex-row tab-align-center gap-1 align-left">
-                    <h1 class="offer-detail-title">{{ offer.title }}</h1>
+                    <h1 class="text-primary fs-1-4">{{ offer.title }}</h1>
                     {% if alreadyApplied %}
                         <span class="badge">POSTULÉ !</span>
                     {% endif %}
                 </div>
 
                 {% if user and user.user_type == 'student' %}
-                    <button class="wishlist-btn" title="Ajouter à la wishlist">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
+                    <a class="wishlist-btn" href="/wishlist/toggle?id={{ offer.id_offer }}">
+                        {% if inWishlist %}
+                            <i class="fa-solid fa-heart"></i>
+                        {% else %}
+                            <i class="fa-regular fa-heart"></i>
+                        {% endif %}
+                    </a>
                 {% endif %}
             </div>
 
