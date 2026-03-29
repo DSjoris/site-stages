@@ -54,6 +54,18 @@
                 $controller->applyPage();
             }
             break;
+        case 'wishlist':
+            $controller = new OfferController($twig);
+            $controller->wishlistPage();
+            break;
+        case 'wishlist/toggle':
+            $controller = new OfferController($twig);
+            $controller->toggleWishlist();
+            break;
+        case 'candidatures':
+            $controller = new OfferController($twig);
+            $controller->applicationsPage();
+            break;
         default:
             header("HTTP/1.0 404 Not Found");
             echo $twig->render('404.html.twig');
