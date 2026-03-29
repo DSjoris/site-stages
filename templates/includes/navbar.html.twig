@@ -12,6 +12,11 @@
     <div class="nav-links">
         <a href="/offres">Offres</a>
         <a href="/entreprises">Entreprises</a>
+        {% if user and user.user_type == 'student' %}
+            <a href="/candidatures">Mes Candidatures</a>
+            <a href="/wishlist">Ma Wishlist</a>
+        {% endif %}
+
         {% if not user %}
             <a href="/connexion">Se connecter</a>
         {% else %}
