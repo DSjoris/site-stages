@@ -10,6 +10,7 @@
     use App\Controllers\HomeController;
     use App\Controllers\AuthController;
     use App\Controllers\OfferController;
+    use App\Controllers\ContactController;
 
     session_start();
 
@@ -46,6 +47,10 @@
         case 'postuler':
             $controller = new OfferController($twig);
             $controller->applyToOffer();
+            break;
+        case 'contact':
+            $controller = new ContactController($twig);
+            $controller->contactPage();
             break;
         default:
 

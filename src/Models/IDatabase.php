@@ -9,5 +9,6 @@
         public function getAllOffers();
         public function getOfferById($id);
         public function getUser($email);
+        public function saveContact($name, $email, $phone, $message);
     }
 ?>
