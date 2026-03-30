@@ -15,9 +15,12 @@
         public function saveCV($id_student, $path_cv);
         public function getUserCVs($id_student);
         public function getStats();
+<<<<<<< HEAD
         public function isInWishlist($id_student, $id_offer);
         public function toggleWishlist($id_student, $id_offer);
         public function getUserWishlist($id_student);
         public function getUserApplications($id_student);
+=======
+>>>>>>> 2488289 (fix: corrections après rebase)
     }
 ?>

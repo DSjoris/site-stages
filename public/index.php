@@ -28,6 +28,7 @@
     $route = trim($request_uri, '/');
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
     $twig->addGlobal('session', $_SESSION);
@@ -38,6 +39,8 @@
 
 >>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
 >>>>>>> 24ed018 (Ajout page création entreprise)
+=======
+>>>>>>> 2488289 (fix: corrections après rebase)
     switch($route) {
         case '':
         case 'accueil':
@@ -98,8 +101,11 @@
             $controller->companyDetailsPage($idCompany);
             break;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
+=======
+>>>>>>> 2488289 (fix: corrections après rebase)
         case 'mentions-legales':
             echo $twig->render('legal-notices.html.twig');
             break;
@@ -107,9 +113,6 @@
             $controller = new CompaniesController($twig);
             $controller->companiesPage();
             break;
-<<<<<<< HEAD
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
-=======
         case 'companies/create':
             $controller = new CompaniesController($twig);
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -119,6 +122,7 @@
             }
             break;
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> d0e315a (Ajout page création entreprise)
 >>>>>>> 24ed018 (Ajout page création entreprise)
         default:
@@ -127,6 +131,8 @@
             break;
     }
 =======
+=======
+>>>>>>> 2488289 (fix: corrections après rebase)
        case (preg_match('#^companies/details/(\d+)$#', $route, $matches) ? true : false):
             $controller = new CompaniesController($twig);
             $controller->companyDetailsPage((int)$matches[1]);
@@ -136,5 +142,3 @@
             echo $twig->render('404.html.twig');
             break;    
         }
->>>>>>> 41013a5 (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
-?>

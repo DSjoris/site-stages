@@ -53,11 +53,15 @@ class CompaniesModel extends MySQLDatabase
         return (int) $result['total'];
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 24ed018 (Ajout page création entreprise)
     
+=======
+     
+>>>>>>> 2488289 (fix: corrections après rebase)
     public function createCompany($name, $sector, $address, $siret, $website, $description)
     {
         $sql = "INSERT INTO companies (name, sector, address, siret, website, description)
@@ -94,7 +98,6 @@ class CompaniesModel extends MySQLDatabase
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
-<<<<<<< HEAD
 
     public function getUserReview(int $companyId, int $userId)
     {
@@ -154,6 +157,7 @@ class CompaniesModel extends MySQLDatabase
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
@@ -182,5 +186,7 @@ class CompaniesModel extends MySQLDatabase
 =======
 >>>>>>> 41013a5 (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
 >>>>>>> fa7e88c (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
+=======
+>>>>>>> 2488289 (fix: corrections après rebase)
 }
 ?>

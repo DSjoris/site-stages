@@ -5,129 +5,52 @@
     <section class="flex-col align-center gap-1 p-2 bg-white">
         <h2>Liste des entreprises</h2>
         <section class="companies-search">
-<<<<<<< HEAD
-<<<<<<< HEAD
             <form method="GET" action="/entreprises" class="companies-search-form">
                 <input type="text" name="search" class="companies-search-input" placeholder="Rechercher une entreprise" value="{{ search|default('') }}">
-=======
-            <form method="GET" action="/companies" class="companies-search-form">
-<<<<<<< HEAD
-                <input type="text" name="search" class="companies-search-input" placeholder="Rechercher une entreprise..." value="{{ search|default('') }}">
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
-=======
-            <form method="GET" action="/companies" class="companies-search-form">
-                <input type="text" name="search" class="companies-search-input" placeholder="Rechercher une entreprise..." value="{{ search|default('') }}">
->>>>>>> cbf3335 (fix name : Companies.html.twig -> companies.html.twig)
-=======
-                <input type="text" name="search" class="companies-search-input" placeholder="Rechercher une entreprise" value="{{ search|default('') }}">
->>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
                 <button type="submit" class="btn-primary">Rechercher</button>
             </form>
         </section>
         <div class="company-list flex-col gap-1 w-full">
             {% for company in companies %}
                 <article class="company-card">
+
                     <div class="company-card-header">
-<<<<<<< HEAD
-<<<<<<< HEAD
                         <div class="company-card-title">
                             <div class="company-rating">
                                 ⭐ {{ company.average_rating ?? '—' }}
                             </div>
-
-                            <div class="company-card-header">
-                                <h2>{{ company.name }}</h2>
-                            </div> 
+                            <h2>{{ company.name }}</h2>
                         </div>
-=======
-                        <h2>{{ company.name }}</h2>
 
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
-=======
-                        <h2>{{ company.name }}</h2>
-
->>>>>>> cbf3335 (fix name : Companies.html.twig -> companies.html.twig)
                         {% if company.sector is defined and company.sector %}
                             <span class="company-badge">{{ company.sector }}</span>
                         {% endif %}
                     </div>
 
                     <div class="company-card-content">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        {% if company.ville is defined and company.ville %}
+                        {% if company.ville %}
                             <p><strong>Ville :</strong> {{ company.ville }}</p>
                         {% endif %}
 
-                        {% if company.description is defined and company.description %}
+                        {% if company.description %}
                             <p class="company-description-preview">{{ company.description }}</p>
-=======
-=======
->>>>>>> cbf3335 (fix name : Companies.html.twig -> companies.html.twig)
-                        {% if company.city is defined and company.city %}
-                            <p><strong>Ville :</strong> {{ company.city }}</p>
-                        {% endif %}
-
-                        {% if company.description is defined and company.description %}
-                            <p>{{ company.description }}</p>
-<<<<<<< HEAD
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
-=======
->>>>>>> cbf3335 (fix name : Companies.html.twig -> companies.html.twig)
-=======
-                        {% if company.address is defined and company.address %}
-                            <p><strong>Adresse :</strong> {{ company.address }}</p>
-=======
-                        {% if company.ville is defined and company.ville %}
-                            <p><strong>Ville :</strong> {{ company.ville }}</p>
->>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
-                        {% endif %}
-
-                        {% if company.description is defined and company.description %}
-                            <p class="company-description-preview">{{ company.description }}</p>
->>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
                         {% else %}
                             <p>Aucune description disponible.</p>
                         {% endif %}
                     </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                     <div class="company-actions">
-                        {% if session.user is defined and session.user.user_type is defined and session.user.user_type in ['admin', 'pilote'] %}
+                        {% if session.user is defined and session.user.user_type in ['admin', 'pilote'] %}
                             <a href="/entreprises/edit/{{ company.id_company }}" class="btn-primary company-actions-btn">
                                 Modifier
                             </a>
                         {% endif %}
+
                         <a href="/entreprises/details?id={{ company.id_company }}" class="btn-primary company-actions-btn">
                             Détails
                         </a>
                     </div>
-=======
-=======
->>>>>>> cbf3335 (fix name : Companies.html.twig -> companies.html.twig)
 
-                    <a href="/companies/details/{{ company.id_company }}" class="btn-primary company-details-btn">
-                        Détails
-                    </a>
-<<<<<<< HEAD
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
-=======
->>>>>>> cbf3335 (fix name : Companies.html.twig -> companies.html.twig)
-=======
-                    <div class="company-actions">
-                        {% if session.user is defined and session.user.user_type is defined and session.user.user_type in ['admin', 'pilote'] %}
-                            <button type="button" class="btn-primary company-actions-btn">
-                                Modifier
-                            </button>
-                        {% endif %}
-                        <a href="/companies/details/{{ company.id_company }}" class="btn-primary company-actions-btn">
-                            Détails
-                        </a>
-                    </div>
->>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
                 </article>
             {% else %}
                 <p>Aucune entreprise disponible pour le moment.</p>
@@ -137,28 +60,12 @@
         {% if totalPages > 1 %}
             <nav class="pagination">
                 {% if currentPage > 1 %}
-<<<<<<< HEAD
-<<<<<<< HEAD
                     <a href="/entreprises?page={{ currentPage - 1 }}{% if search %}&search={{ search|url_encode }}{% endif %}" class="btn-primary">Précédent</a>
-=======
-                    <a href="/companies?page={{ currentPage - 1 }}{% if search %}&search={{ search|url_encode }}{% endif %}" class="btn-primary">Précédent</a>
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
-=======
-                    <a href="/companies?page={{ currentPage - 1 }}{% if search %}&search={{ search|url_encode }}{% endif %}" class="btn-primary">Précédent</a>
->>>>>>> cbf3335 (fix name : Companies.html.twig -> companies.html.twig)
                 {% endif %}
 
                 <div class="pagination-pages">
                     {% for i in 1..totalPages %}
-<<<<<<< HEAD
-<<<<<<< HEAD
                         <a href="/entreprises?page={{ i }}{% if search %}&search={{ search|url_encode }}{% endif %}"
-=======
-                        <a href="/companies?page={{ i }}{% if search %}&search={{ search|url_encode }}{% endif %}"
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
-=======
-                        <a href="/companies?page={{ i }}{% if search %}&search={{ search|url_encode }}{% endif %}"
->>>>>>> cbf3335 (fix name : Companies.html.twig -> companies.html.twig)
                         class="pagination-link {% if i == currentPage %}active{% endif %}">
                             {{ i }}
                         </a>
@@ -166,15 +73,7 @@
                 </div>
 
                 {% if currentPage < totalPages %}
-<<<<<<< HEAD
-<<<<<<< HEAD
                     <a href="/entreprises?page={{ currentPage + 1 }}{% if search %}&search={{ search|url_encode }}{% endif %}" class="btn-primary">Suivant</a>
-=======
-                    <a href="/companies?page={{ currentPage + 1 }}{% if search %}&search={{ search|url_encode }}{% endif %}" class="btn-primary">Suivant</a>
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
-=======
-                    <a href="/companies?page={{ currentPage + 1 }}{% if search %}&search={{ search|url_encode }}{% endif %}" class="btn-primary">Suivant</a>
->>>>>>> cbf3335 (fix name : Companies.html.twig -> companies.html.twig)
                 {% endif %}
             </nav>
         {% endif %}

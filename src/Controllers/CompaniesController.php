@@ -29,16 +29,20 @@ class CompaniesController extends Controller
         $totalPages = (int) ceil($totalCompanies / $limit);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
 >>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
 >>>>>>> 401ad78 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
+=======
+>>>>>>> 2488289 (fix: corrections après rebase)
         foreach ($companies as &$company) {
             $company['ville'] = $this->extractVille($company['address']);
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -47,6 +51,8 @@ class CompaniesController extends Controller
 =======
 >>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
 >>>>>>> 401ad78 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
+=======
+>>>>>>> 2488289 (fix: corrections après rebase)
         echo $this->templateEngine->render('companies.html.twig', [
             'companies' => $companies,
             'currentPage' => $page,
@@ -55,12 +61,15 @@ class CompaniesController extends Controller
         ]);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
 >>>>>>> d0e315a (Ajout page création entreprise)
 >>>>>>> 24ed018 (Ajout page création entreprise)
+=======
+>>>>>>> 2488289 (fix: corrections après rebase)
 
     public function createCompanyPage()
     {
@@ -74,8 +83,6 @@ class CompaniesController extends Controller
     {
         $name = trim($_POST['name'] ?? '');
         $sector = trim($_POST['sector'] ?? '');
-<<<<<<< HEAD
-<<<<<<< HEAD
         $address = trim($_POST['address'] ?? '');
         $country = trim($_POST['country'] ?? '');
         $siret = trim($_POST['siret'] ?? '');
@@ -105,13 +112,7 @@ class CompaniesController extends Controller
 
         if ($website !== '' && !filter_var($website, FILTER_VALIDATE_URL)) {
             $errors[] = "L'URL du site web n'est pas valide.";
-=======
-        $city = trim($_POST['city'] ?? '');
-=======
-        $address = trim($_POST['address'] ?? '');
-        $siret = trim($_POST['siret'] ?? '');
-        $website = trim($_POST['website'] ?? '');
->>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
+        }
         $description = trim($_POST['description'] ?? '');
 
         $errors = [];
@@ -119,7 +120,6 @@ class CompaniesController extends Controller
 
         if ($name === '') {
             $errors[] = "Le nom de l'entreprise est obligatoire.";
->>>>>>> d0e315a (Ajout page création entreprise)
         }
 
         if (!in_array($sector, $allowedSectors, true)) {
@@ -144,29 +144,15 @@ class CompaniesController extends Controller
                 'old' => [
                     'name' => $name,
                     'sector' => $sector,
-<<<<<<< HEAD
-<<<<<<< HEAD
                     'address' => $address,
                     'siret' => $siret,
                     'website' => $website,
-=======
-                    'city' => $city,
->>>>>>> d0e315a (Ajout page création entreprise)
-=======
-                    'address' => $address,
-                    'siret' => $siret,
-                    'website' => $website,
->>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
                     'description' => $description
                 ]
             ]);
             return;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
         $this->model->createCompany(
             $name,
             $sector,
@@ -175,7 +161,6 @@ class CompaniesController extends Controller
             $website,
             $description
         );
-<<<<<<< HEAD
 
         header('Location: /entreprises');
         exit;
@@ -274,6 +259,7 @@ class CompaniesController extends Controller
     }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 }
@@ -339,3 +325,5 @@ class CompaniesController extends Controller
 }
 >>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
 >>>>>>> 401ad78 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
+=======
+>>>>>>> 2488289 (fix: corrections après rebase)

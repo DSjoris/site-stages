@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -19,6 +20,8 @@ burger.addEventListener('click', () => {
 });
 
 >>>>>>> 26ce283 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
+=======
+>>>>>>> 2488289 (fix: corrections après rebase)
 // postuler
 const applyForm = document.getElementById('applyForm');
 const cvs = document.getElementsByName('id_cv');
@@ -31,6 +34,7 @@ if (applyForm && inputCv && errorApplyField && cvs.length) {
         cvs.forEach(cv => {
             if (cv.checked && cv.value !== 'none') cv_checked = true;
         });
+<<<<<<< HEAD
 
         if (!cv_checked && !inputCv.files.length) {
             e.preventDefault();
@@ -145,10 +149,16 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('click', function (e) {
         if (!dropdown.contains(e.target) && e.target !== input) {
             hideDropdown();
+=======
+
+        if (!cv_checked && !inputCv.files.length) {
+            e.preventDefault();
+            errorApplyField.textContent = 'Veuillez sélectionner un CV pour postuler.';
+>>>>>>> 2488289 (fix: corrections après rebase)
         }
     });
-});
 
+<<<<<<< HEAD
 
 inputCv.addEventListener('change', () => {
     if (inputCv.files.length) {
@@ -167,9 +177,29 @@ inputCv.addEventListener('change', () => {
 });
 =======
 console.log("JS OK");
-
 =======
->>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
+    cvs.forEach(cv => {
+        cv.addEventListener('change', () => {
+            if (cv.checked && cv.value !== 'none') {
+                inputCv.disabled = true;
+                inputCv.value = '';
+                errorApplyField.textContent = '';
+            } else {
+                inputCv.disabled = false;
+            }
+        });
+    });
+
+    inputCv.addEventListener('change', () => {
+        if (inputCv.files.length) {
+            errorApplyField.textContent = '';
+        }
+    });
+}
+
+
+>>>>>>> 2488289 (fix: corrections après rebase)
+
 document.addEventListener('DOMContentLoaded', function () {
     const burger = document.querySelector('.burger');
     const navLinks = document.querySelector('.nav-links');
@@ -260,5 +290,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+<<<<<<< HEAD
 >>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
 >>>>>>> 26ce283 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
+=======
+>>>>>>> 2488289 (fix: corrections après rebase)

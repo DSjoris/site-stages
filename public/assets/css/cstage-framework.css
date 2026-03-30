@@ -104,11 +104,14 @@
     min-height: 0;
 }
 
+<<<<<<< HEAD
 .max-width-900 {
     max-width: 900px;
 }
 
 
+=======
+>>>>>>> 2488289 (fix: corrections après rebase)
 .h-full {
     height: 100%;
 }
@@ -190,6 +193,7 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
+<<<<<<< HEAD
 /* Buttons & Badges */
 .btn-primary {
     padding: 0.5rem 2rem;
@@ -202,6 +206,21 @@
     transition: 0.4s;
     text-align: center;
     font-size: 1rem;
+=======
+/* Buttons */
+.btn-primary {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: none;
+
+    background-color: var(--primary);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.2s ease;
+>>>>>>> 2488289 (fix: corrections après rebase)
 }
 
 .btn-primary:hover {
