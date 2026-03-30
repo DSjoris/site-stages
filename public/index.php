@@ -27,20 +27,13 @@
     $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $route = trim($request_uri, '/');
     
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
+
     $twig->addGlobal('session', $_SESSION);
 
     $request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
     $route = trim($request_uri, '/');
 
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
->>>>>>> 24ed018 (Ajout page création entreprise)
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
     switch($route) {
         case '':
         case 'accueil':
@@ -82,6 +75,7 @@
         case 'candidatures':
             $controller = new OfferController($twig);
             $controller->applicationsPage();
+            break;
         case 'entreprises':
             $controller = new CompaniesController($twig);
             $controller->companiesPage();
@@ -100,42 +94,8 @@
             $idCompany = isset($_GET['id']) ? (int) $_GET['id'] : 0;
             $controller->companyDetailsPage($idCompany);
             break;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
         case 'mentions-legales':
             echo $twig->render('legal-notices.html.twig');
-            break;
-        case 'companies':
-            $controller = new CompaniesController($twig);
-            $controller->companiesPage();
-            break;
-        case 'companies/create':
-            $controller = new CompaniesController($twig);
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $controller->storeCompany();
-            } else {
-                $controller->createCompanyPage();
-            }
-            break;
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> d0e315a (Ajout page création entreprise)
->>>>>>> 24ed018 (Ajout page création entreprise)
-        default:
-            header("HTTP/1.0 404 Not Found");
-            echo $twig->render('404.html.twig');
-            break;
-    }
-=======
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
-       case (preg_match('#^companies/details/(\d+)$#', $route, $matches) ? true : false):
-            $controller = new CompaniesController($twig);
-            $controller->companyDetailsPage((int)$matches[1]);
             break;
         default:
             header("HTTP/1.0 404 Not Found");

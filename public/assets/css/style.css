@@ -198,10 +198,6 @@ main {
     font-weight: bold;
     font-size: 0.8rem;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 2488289 (fix: corrections après rebase)
 /*companies.php */
 .companies-search {
     margin-bottom: 2rem;
@@ -333,22 +329,7 @@ main {
 
 .company-card-content {
     display: flex;
-<<<<<<< HEAD
-<<<<<<< HEAD
     justify-content: flex-end;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    justify-content: flex-end;
-=======
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
-=======
-    justify-content: flex-end;
->>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
->>>>>>> 26ce283 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
-=======
-    justify-content: flex-end;
->>>>>>> 2488289 (fix: corrections après rebase)
     flex-direction: column;
     gap: 0.5rem;
     color: #333;
@@ -364,16 +345,6 @@ main {
     margin-left: auto;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
->>>>>>> 401ad78 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
 .company-actions {
     display: flex;
     justify-content: flex-end;
@@ -393,25 +364,14 @@ main {
     line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
+}
+
 .company-details-btn {
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
     display: flex;
     justify-content: center;
     width: auto;
     align-items: center;
     min-width: 120px; 
-<<<<<<< HEAD
->>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
->>>>>>> 401ad78 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
 }
 
 .company-description-preview {
@@ -457,16 +417,6 @@ main {
     color: var(--text);
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4b8b3be (Ajout page création entreprise + amélioration CSS)
->>>>>>> a778142 (Ajout page création entreprise + amélioration CSS)
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
 /* create company.php */
 
 .company-create-page {
@@ -721,15 +671,6 @@ main {
     font-style: italic;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
-=======
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
-
 .address-field {
     position: relative;
 }
@@ -768,17 +709,6 @@ main {
     background: #f5f7fa;
 }
 
-<<<<<<< HEAD
->>>>>>> 4b8b3be (Ajout page création entreprise + amélioration CSS)
-<<<<<<< HEAD
->>>>>>> a778142 (Ajout page création entreprise + amélioration CSS)
-=======
-=======
->>>>>>> 41013a5 (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
->>>>>>> fa7e88c (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
-
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
 /* footer.php */
 .footer {
     margin-top: 1rem;

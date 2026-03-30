@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-// navbar - burger menu
-=======
->>>>>>> 91e6c56 (Ajout de la page des entreprises avec une recherche et une pagination)
-=======
->>>>>>> 0beb2c7 (Je remet tout le projet)
-const burger = document.querySelector('.burger');
-const navLinks = document.querySelector('.nav-links');
-
-burger.addEventListener('click', () => {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    navLinks.classList.toggle('active');
-});
-
->>>>>>> 26ce283 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
 // postuler
 const applyForm = document.getElementById('applyForm');
 const cvs = document.getElementsByName('id_cv');
@@ -34,7 +10,6 @@ if (applyForm && inputCv && errorApplyField && cvs.length) {
         cvs.forEach(cv => {
             if (cv.checked && cv.value !== 'none') cv_checked = true;
         });
-<<<<<<< HEAD
 
         if (!cv_checked && !inputCv.files.length) {
             e.preventDefault();
@@ -149,35 +124,21 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('click', function (e) {
         if (!dropdown.contains(e.target) && e.target !== input) {
             hideDropdown();
-=======
-
-        if (!cv_checked && !inputCv.files.length) {
-            e.preventDefault();
-            errorApplyField.textContent = 'Veuillez sélectionner un CV pour postuler.';
->>>>>>> 2488289 (fix: corrections après rebase)
         }
     });
 
-<<<<<<< HEAD
 
-inputCv.addEventListener('change', () => {
-    if (inputCv.files.length) {
-        errorApplyField.textContent = '';
-    }
-    console.log("test")
-    navLinks.classList.toggle('active');
-<<<<<<< HEAD
-});
-=======
->>>>>>> 91e6c56 (Ajout de la page des entreprises avec une recherche et une pagination)
-=======
-    console.log("test")
-    navLinks.classList.toggle('active');
->>>>>>> 0beb2c7 (Je remet tout le projet)
-});
-=======
-console.log("JS OK");
-=======
+    inputCv.addEventListener('change', () => {
+        if (inputCv.files.length) {
+            errorApplyField.textContent = '';
+        }
+        console.log("test")
+        navLinks.classList.toggle('active');
+    });
+        console.log("test")
+        navLinks.classList.toggle('active');
+    });
+
     cvs.forEach(cv => {
         cv.addEventListener('change', () => {
             if (cv.checked && cv.value !== 'none') {
@@ -195,10 +156,9 @@ console.log("JS OK");
             errorApplyField.textContent = '';
         }
     });
-}
 
 
->>>>>>> 2488289 (fix: corrections après rebase)
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const burger = document.querySelector('.burger');
@@ -289,9 +249,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-<<<<<<< HEAD
->>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
->>>>>>> 26ce283 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
-=======
->>>>>>> 2488289 (fix: corrections après rebase)

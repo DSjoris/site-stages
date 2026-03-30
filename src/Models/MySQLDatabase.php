@@ -188,7 +188,6 @@
             $stmt = $this->db->query($sql);
             return $stmt->fetch();
         }
-<<<<<<< HEAD
 
         public function isInWishlist($id_student, $id_offer) {
             $sql = "SELECT 1 FROM wishlists WHERE id_student = :id_student AND id_offer = :id_offer LIMIT 1";
@@ -248,7 +247,5 @@
             $stmt->execute(['id_student' => $id_student]);
             return $stmt->fetchAll();
         }
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
     }
 ?>

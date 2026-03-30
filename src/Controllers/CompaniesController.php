@@ -28,31 +28,11 @@ class CompaniesController extends Controller
         $totalCompanies = $this->model->countCompanies($search);
         $totalPages = (int) ceil($totalCompanies / $limit);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
->>>>>>> 401ad78 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
         foreach ($companies as &$company) {
             $company['ville'] = $this->extractVille($company['address']);
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
-=======
->>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
->>>>>>> 401ad78 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
+
         echo $this->templateEngine->render('companies.html.twig', [
             'companies' => $companies,
             'currentPage' => $page,
@@ -60,16 +40,6 @@ class CompaniesController extends Controller
             'search' => $search
         ]);
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d0e315a (Ajout page création entreprise)
->>>>>>> 24ed018 (Ajout page création entreprise)
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
 
     public function createCompanyPage()
     {
@@ -198,19 +168,6 @@ class CompaniesController extends Controller
         ]);
     }
 
-    private function extractVille($adress)
-    {
-        if (!$adress) {
-            return '';
-        }
-
-        if (preg_match('/\b\d{5}\s+(.+)$/', $adress, $matches)) {
-            return $matches[1];
-        }
-
-        return $adress;
-    }
-
     public function rateCompany(int $idCompany)
     {
         if (
@@ -257,58 +214,6 @@ class CompaniesController extends Controller
         header('Location: /companies/details/' . $idCompany);
         exit;
     }
-}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-}
-?>
->>>>>>> c923f2a (Ajout des nouveaux fichier pour la page des entreprises avec recherche et une pagination)
-=======
-        $this->model->createCompany($name, $sector, $city, $description);
-=======
->>>>>>> c9115d4 (amélioration de la création d'entreprise et amélioration de la liste d'entreprises avec les adresses opérationnel)
-
-        header('Location: /companies');
-        exit;
-    }
-<<<<<<< HEAD
-}
->>>>>>> d0e315a (Ajout page création entreprise)
-<<<<<<< HEAD
->>>>>>> 24ed018 (Ajout page création entreprise)
-=======
-=======
-    public function companyDetailsPage(int $idCompany)
-    {
-        if ($idCompany <= 0) {
-            http_response_code(404);
-            echo "Entreprise introuvable.";
-            return;
-        }
-
-        $company = $this->model->getCompanyById($idCompany);
-        $offers = $this->model->getOffersByCompanyId($idCompany);
-
-        if (!$company) {
-            http_response_code(404);
-            echo "Entreprise introuvable.";
-            return;
-        }
-
-        echo $this->templateEngine->render('companies-details.html.twig', [
-            'company' => $company,
-            'offers' => $offers
-        ]);
-    }
-<<<<<<< HEAD
-}
->>>>>>> 41013a5 (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
-<<<<<<< HEAD
->>>>>>> fa7e88c (Ajout de la page company-details pour pouvoir voir chaque company individuellement)
-=======
-=======
 
     private function extractVille($adress)
     {
@@ -323,7 +228,3 @@ class CompaniesController extends Controller
         return $adress;
     }
 }
->>>>>>> 6d83437 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
->>>>>>> 401ad78 (modification des cards entreprise : adresse -> ville, ajout du bouton modifier pour admins/pilotes)
-=======
->>>>>>> 2488289 (fix: corrections après rebase)

@@ -11,10 +11,6 @@
         public function getLast3Offers() {
             return $this->db->getLast3Offers();
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> 2488289 (fix: corrections après rebase)
         public function getAllOffers() {
             return $this->db->getAllOffers();
         }
@@ -42,7 +38,6 @@
         public function getUserCVs($id_student) {
             return $this->db->getUserCVs($id_student);
         }
-<<<<<<< HEAD
         public function isInWishlist($id_student, $id_offer) {
             return $this->db->isInWishlist($id_student, $id_offer);
         }
@@ -58,7 +53,5 @@
         public function getUserApplications($id_student) {
             return $this->db->getUserApplications($id_student);
         }
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
     }
 ?>

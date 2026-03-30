@@ -12,28 +12,14 @@
     <div class="nav-links">
         <a href="/offres">Offres</a>
         <a href="/entreprises">Entreprises</a>
-<<<<<<< HEAD
         {% if user and user.user_type == 'student' %}
             <a href="/candidatures">Mes Candidatures</a>
             <a href="/wishlist">Ma Wishlist</a>
         {% endif %}
 
-        {% if session.user and not user %}
+        {% if user and user.user_type in ['admin', 'pilote'] %}
             <a href="/entreprises/creation">Ajouter une entreprise</a>
         {% endif %}
-=======
-        <a href="/entreprises/creation">Ajouter une entreprise</a>
-<<<<<<< HEAD
-=======
-        <a href="/companies">Entreprises</a>
-<<<<<<< HEAD
->>>>>>> 0beb2c7 (Je remet tout le projet)
-=======
-        <a href="/companies/create">Ajouter une entreprise</a>
->>>>>>> d0e315a (Ajout page création entreprise)
->>>>>>> 24ed018 (Ajout page création entreprise)
-=======
->>>>>>> 2488289 (fix: corrections après rebase)
         {% if not session.user %}
             <a href="/connexion">Se connecter</a>
         {% else %}
