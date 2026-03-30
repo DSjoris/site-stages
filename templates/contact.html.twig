@@ -4,15 +4,14 @@
 
 {% block main %}
 <main>
-    <section class="fast-search-section">
-
+    <section class="w-full flex-col align-center justify-center gap-2">
         {% if success %}
             <p class="text-primary bold gap-2">Votre message a bien été envoyé !</p>
         {% else %}
-                    <h2>Contactez-nous</h2>
+            <h2 class="mt-2">Contactez-nous</h2>
             <p class="small-text">Nous sommes là pour vous aider !</p>
             <form method="POST" action="/contact" class="input-field flex-col gap-1">
-                <div class="flex-row gap-1">
+                <div class="flex-col tab-flex-row gap-1">
                     <input type="text" name="name" class="input flex-1" placeholder="Nom">
                     <input type="email" name="email" class="input flex-1" placeholder="Adresse email">
                 </div>
