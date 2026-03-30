@@ -19,5 +19,6 @@
         public function toggleWishlist($id_student, $id_offer);
         public function getUserWishlist($id_student);
         public function getUserApplications($id_student);
+        public function saveContact($name, $email, $phone, $message);
     }
 ?>

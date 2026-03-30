@@ -10,6 +10,7 @@
     use App\Controllers\HomeController;
     use App\Controllers\AuthController;
     use App\Controllers\OfferController;
+    use App\Controllers\ContactController;
 
     session_start();
 
@@ -65,6 +66,10 @@
         case 'candidatures':
             $controller = new OfferController($twig);
             $controller->applicationsPage();
+            break;
+        case 'contact':
+            $controller = new ContactController($twig);
+            $controller->contactPage();
             break;
         default:
             header("HTTP/1.0 404 Not Found");

@@ -78,6 +78,18 @@
             $stmt->execute(['id' => $id]);
             return $stmt->fetch();
         }
+        
+        public function saveContact($name, $email, $phone, $message) {
+            $sql = "INSERT INTO contacts (name, email, phone, message)
+                    VALUES (:name, :email, :phone, :message)";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute([
+                'name' => $name,
+                'email' => $email,
+                'phone' => $phone,
+                'message' => $message
+            ]);
+        }
 
         public function getUser($email) {
             $sql = "SELECT users.*, 
